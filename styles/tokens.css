@@ -74,6 +74,9 @@
   --z-sticky-nav: 100;
   --z-classification: 101;
 
+  /* Brand */
+  --brand-h: 44px;
+
   /* Sticky chrome (classification banner height → nav offset) */
   --classification-banner-h: 2.75rem;
   --sticky-nav-height: 3.25rem;

@@ -1,6 +1,10 @@
-# AI Skunkworks / Unit–47
+# AI Skunkworks — Northeastern
 
 Northeastern student-led AI research group site: a static, multi-page front end with shared chrome (classification banner, sticky nav, footer) and no build step. Open the HTML files directly or serve the folder with any static file server.
+
+**Pronunciation:** "AI Skunkworks" (not "skunkworks A.I.")
+
+**Domain:** [skunk.ai](https://skunk.ai)
 
 ## Run locally
 
@@ -18,6 +22,9 @@ Or open `index.html` in your browser (relative asset paths work when served from
 
 ```
 ai-skunkworks/
+├── assets/
+│   ├── skunkworks-logo.jpg
+│   └── favicon.png
 ├── index.html
 ├── projects.html
 ├── manifesto.html
@@ -36,6 +43,8 @@ ai-skunkworks/
     └── pages-projects.css
 ```
 
+Replace `assets/skunkworks-logo.jpg` with the official NEU round badge (`skunkworksneu_logo.jpg`) when available; `favicon.png` is derived from the same source.
+
 ## Deploying to GitHub Pages
 
 1. Push the repo to GitHub.
@@ -48,6 +57,6 @@ The `.nojekyll` file at the repo root tells GitHub Pages not to run Jekyll (so p
 
 ## Conventions
 
-- **Class names:** BEM-style blocks such as `site-sticky-nav__*` and `site-footer__*`.
+- **Class names:** BEM-style blocks such as `site-sticky-nav__*`, `site-brand__*`, and `site-footer__*`.
 - **Theming:** Use CSS custom properties from `styles/tokens.css`; avoid hardcoded colors except the classification banner red (`#ff3a3a`).
 - **Active nav:** Set `aria-current="page"` on the current page’s link in each HTML file. There is no client-side routing.

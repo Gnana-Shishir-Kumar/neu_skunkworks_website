@@ -55,74 +55,67 @@
   gap: var(--space-sm);
 }
 
-.site-sticky-nav__brand {
+.site-brand {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-sm);
+  gap: 12px;
   text-decoration: none;
-  color: inherit;
+  color: var(--ink);
+}
+
+.site-sticky-nav__inner .site-brand {
   justify-self: start;
 }
 
-.site-sticky-nav__brand:focus-visible {
+.site-brand:focus-visible {
   outline: 1px solid var(--accent);
   outline-offset: 4px;
 }
 
-.brand-mark {
-  position: relative;
+.site-brand__logo {
+  width: var(--brand-h);
+  height: var(--brand-h);
+  border-radius: 50%;
   display: block;
-  width: 28px;
-  height: 28px;
   flex-shrink: 0;
-  border: 2px solid var(--accent);
-  box-sizing: border-box;
+  background: var(--paper);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
-.brand-mark::before,
-.brand-mark::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background-color: var(--accent);
-  pointer-events: none;
+.site-brand:hover .site-brand__logo {
+  box-shadow:
+    0 0 0 1px var(--accent),
+    0 0 12px rgba(184, 255, 58, 0.25);
 }
 
-.brand-mark::before {
-  width: 14px;
-  height: 2px;
-}
-
-.brand-mark::after {
-  width: 2px;
-  height: 14px;
-}
-
-.site-sticky-nav__brand-text {
+.site-brand__wordmark {
   display: flex;
   flex-direction: column;
-  gap: 0.1rem;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   line-height: 1.2;
 }
 
-.site-sticky-nav__brand-title {
-  font-family: var(--mono);
-  font-size: var(--text-sm);
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+.site-brand__wordmark strong {
   color: var(--accent);
+  font-weight: 500;
 }
 
-.site-sticky-nav__brand-sub {
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+.site-brand__wordmark small {
   color: var(--ink-dim);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+}
+
+@media (max-width: 720px) {
+  .site-brand__wordmark {
+    display: none;
+  }
 }
 
 .site-sticky-nav__links {
@@ -223,7 +216,7 @@
     justify-items: stretch;
   }
 
-  .site-sticky-nav__brand {
+  .site-sticky-nav__inner .site-brand {
     justify-self: start;
   }
 
