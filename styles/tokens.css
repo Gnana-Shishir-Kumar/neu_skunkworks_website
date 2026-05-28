@@ -47,6 +47,15 @@
   --text-xl: 1.75rem;
   --text-2xl: 2.25rem;
 
+  /* Type scale — semantic (Fraunces + body/mono) */
+  --type-h1-hero: clamp(60px, 10vw, 152px);
+  --type-h2-section: clamp(48px, 6vw, 88px);
+  --type-h3-card: clamp(24px, 2.4vw, 32px);
+  --type-pullprose: clamp(22px, 2.2vw, 28px);
+  --type-body-lg: 17px;
+  --type-body: 14px;
+  --type-mono-label: 11px;
+
   /* Radii */
   --radius-sm: 2px;
   --radius-md: 4px;
