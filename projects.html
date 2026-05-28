@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="styles/base.css" />
     <link rel="stylesheet" href="styles/components.css" />
     <link rel="stylesheet" href="styles/layout.css" />
+    <link rel="stylesheet" href="styles/pages-projects.css" />
   </head>
   <body>
     <div class="site-shell">
@@ -34,7 +35,7 @@
             <a href="projects.html" aria-current="page">01 — Projects</a>
             <a href="manifesto.html">02 — Manifesto</a>
             <a href="people.html">03 — Crew</a>
-            <a href="join.html">04 — Enlist</a>
+            <a href="events.html">04 — Events</a>
           </nav>
           <div class="site-sticky-nav__meta">
             <span class="site-sticky-nav__pulse" aria-hidden="true"></span>
@@ -42,7 +43,133 @@
           </div>
         </div>
       </header>
-      <main class="site-main" id="main"></main>
+      <main class="site-main" id="main">
+        <section class="intake" id="intake" aria-labelledby="intake-heading">
+          <header class="section-head">
+            <span class="section-num">§ 01.D</span>
+            <p class="section-head__eyebrow">INTAKE</p>
+            <h2 id="intake-heading">Submit a research proposal.</h2>
+          </header>
+          <form
+            class="proposal-form"
+            id="form-a1"
+            action="mailto:aiskunkworks@northeastern.edu"
+            method="post"
+            enctype="text/plain"
+          >
+            <p class="proposal-form__id">FORM.A1 — PROPOSAL INTAKE</p>
+            <p class="proposal-form__routing">UNCLASSIFIED · ROUTED TO DIVISION LEADS · MONTHLY REVIEW</p>
+            <p class="proposal-form__intro">
+              Use this form to propose a new research lane, spin up a sub-group, or request resources for an experiment
+              that does not fit an existing division. Proposals are reviewed on a rolling basis; expect a response within
+              two weeks during the academic term.
+            </p>
+            <fieldset class="proposal-form__fieldset">
+              <legend class="proposal-form__legend">Operator</legend>
+              <div class="proposal-form__grid">
+                <div class="form-field">
+                  <label for="operator-name">Full name</label>
+                  <input id="operator-name" name="operator_name" type="text" autocomplete="name" required />
+                </div>
+                <div class="form-field">
+                  <label for="operator-email">Northeastern email</label>
+                  <input
+                    id="operator-email"
+                    name="operator_email"
+                    type="email"
+                    autocomplete="email"
+                    placeholder="name@northeastern.edu"
+                    required
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="operator-affiliation">Affiliation</label>
+                  <select id="operator-affiliation" name="affiliation" required>
+                    <option value="">Select…</option>
+                    <option value="undergraduate">Undergraduate</option>
+                    <option value="graduate">Graduate</option>
+                    <option value="doctoral">Doctoral</option>
+                    <option value="faculty">Faculty / staff</option>
+                    <option value="alumni">Alumni</option>
+                    <option value="external">External collaborator</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label for="target-division">Target division</label>
+                  <select id="target-division" name="target_division" required>
+                    <option value="">Select…</option>
+                    <option value="causal">Causal Inference</option>
+                    <option value="xai">Explainable AI</option>
+                    <option value="observability">ML Observability</option>
+                    <option value="visual">Visual Analytics</option>
+                    <option value="generative">Generative Art (Gauguin)</option>
+                    <option value="competition">Competition ML / Kaggle</option>
+                    <option value="new">New division (justify below)</option>
+                  </select>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="proposal-form__fieldset">
+              <legend class="proposal-form__legend">Proposal</legend>
+              <div class="form-field">
+                <label for="working-title">Working title</label>
+                <input id="working-title" name="working_title" type="text" required />
+              </div>
+              <div class="form-field">
+                <label for="thesis-line">Thesis (one sentence)</label>
+                <input id="thesis-line" name="thesis" type="text" maxlength="160" required />
+              </div>
+              <div class="form-field">
+                <label for="problem">Problem statement</label>
+                <textarea id="problem" name="problem" rows="6" required></textarea>
+              </div>
+              <div class="form-field">
+                <label for="approach">Proposed approach</label>
+                <textarea id="approach" name="approach" rows="6" required></textarea>
+              </div>
+              <div class="form-field">
+                <label for="prior-art">What already exists</label>
+                <textarea
+                  id="prior-art"
+                  name="prior_art"
+                  rows="4"
+                  placeholder="Papers, repos, baselines, or internal work you are building on."
+                ></textarea>
+              </div>
+              <div class="form-field">
+                <label for="milestone">90-day deliverable</label>
+                <textarea id="milestone" name="milestone_90d" rows="4" required></textarea>
+              </div>
+              <div class="form-field">
+                <label for="failure-mode">Accepted failure mode</label>
+                <textarea
+                  id="failure-mode"
+                  name="failure_mode"
+                  rows="3"
+                  placeholder="What are you willing to be wrong about?"
+                  required
+                ></textarea>
+              </div>
+              <div class="form-field">
+                <label for="resources">Compute / data / mentor needs</label>
+                <textarea id="resources" name="resources" rows="3"></textarea>
+              </div>
+            </fieldset>
+            <label class="proposal-form__ack">
+              <input type="checkbox" name="acknowledgment" required />
+              I understand this is a research proposal routed to division leads — not a feature request or coursework
+              extension.
+            </label>
+            <div class="proposal-form__actions">
+              <button class="btn btn--primary" type="submit">Transmit proposal →</button>
+            </div>
+            <p class="proposal-form__fine">
+              Submissions open your mail client with a pre-filled message. If that fails, email
+              aiskunkworks@northeastern.edu with subject line “FORM.A1 — [working title]”.
+            </p>
+          </form>
+        </section>
+      </main>
       <footer class="site-footer">
         <div class="site-footer__inner">
           <div class="site-footer__grid">
@@ -62,7 +189,7 @@
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="manifesto.html">Manifesto</a></li>
                 <li><a href="people.html">Crew</a></li>
-                <li><a href="join.html">Enlist</a></li>
+                <li><a href="events.html">Events</a></li>
               </ul>
             </div>
             <div class="site-footer__col">
