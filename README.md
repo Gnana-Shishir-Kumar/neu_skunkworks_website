@@ -32,6 +32,7 @@ ai-skunkworks/
     ├── layout.css
     ├── pages-index.css
     ├── pages-events.css
+    ├── pages-people.css
     └── pages-projects.css
 ```
 
