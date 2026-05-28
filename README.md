@@ -55,6 +55,17 @@ Replace `assets/skunkworks-logo.jpg` with the official NEU round badge (`skunkwo
 
 The `.nojekyll` file at the repo root tells GitHub Pages not to run Jekyll (so paths and static assets behave as expected).
 
+## Channels
+
+Canonical order (footer and CTAs):
+
+1. **Discord** — community + day-to-day discussion (`#discord-invite` until invite URL is set)
+2. **Substack** — writing, announcements, project logs (`#substack` until URL is set)
+3. **LinkedIn** — [linkedin.com/company/aiskunkworks](https://www.linkedin.com/company/aiskunkworks/)
+4. **Instagram** — [instagram.com/aiskunkworks](https://instagram.com/aiskunkworks)
+5. **GitHub** — [github.com/skunkworksneu](https://github.com/skunkworksneu)
+6. **Email** — [aiskunkworks@northeastern.edu](mailto:aiskunkworks@northeastern.edu)
+
 ## Conventions
 
 - **Class names:** BEM-style blocks such as `site-sticky-nav__*`, `site-brand__*`, and `site-footer__*`.

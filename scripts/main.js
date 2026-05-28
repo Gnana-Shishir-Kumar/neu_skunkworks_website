@@ -4,10 +4,10 @@
 (function () {
   "use strict";
 
-  /** @type {{ slackInvite: string }} */
+  /** @type {{ discordInvite: string }} */
   var SKUNKWORKS_LINKS = {
-    slackInvite:
-      "https://join.slack.com/t/neu-ai-skunkworks/shared_invite/zt-1skunkworks47",
+    // TODO: paste Discord invite URL when live
+    discordInvite: "#discord-invite",
   };
 
   function tickClock() {
@@ -21,10 +21,11 @@
     el.textContent = h + ":" + m + ":" + s + " Z";
   }
 
-  function wireSlackLinks() {
-    var links = document.querySelectorAll("[data-slack-invite]");
+  function wireDiscordLinks() {
+    if (SKUNKWORKS_LINKS.discordInvite.charAt(0) === "#") return;
+    var links = document.querySelectorAll("[data-discord-invite]");
     for (var i = 0; i < links.length; i++) {
-      links[i].setAttribute("href", SKUNKWORKS_LINKS.slackInvite);
+      links[i].setAttribute("href", SKUNKWORKS_LINKS.discordInvite);
       links[i].setAttribute("target", "_blank");
       links[i].setAttribute("rel", "noopener noreferrer");
     }
@@ -143,6 +144,6 @@
 
   tickClock();
   setInterval(tickClock, 1000);
-  wireSlackLinks();
+  wireDiscordLinks();
   initYearJump();
 })();
