@@ -22,6 +22,19 @@
     <link rel="stylesheet" href="styles/components.css" />
     <link rel="stylesheet" href="styles/layout.css" />
     <link rel="stylesheet" href="styles/pages-events.css" />
+    <noscript
+      ><style
+        >.event-card[data-state="locked"] .event-card__body,
+        .event-log__entry[data-state="locked"] .event-log__body {
+          filter: none !important;
+          opacity: 1 !important;
+        }
+        .event-card__reveal,
+        .event-log__reveal {
+          display: none !important;
+        }</style
+      ></noscript
+    >
   </head>
   <body>
     <div class="site-shell">
@@ -77,55 +90,103 @@
             <p class="section-head__sub">Active intake. RSVP via Discord.</p>
           </header>
           <div class="events-upcoming__grid">
-            <article class="event-card">
-              <div class="event-card__date-block">
-                <span class="event-card__day event-card__day--tbd">TBD</span>
+            <article class="event-card" data-state="locked">
+              <div class="event-card__date">
+                <span class="event-card__date-num">TBD</span>
                 <span class="event-card__date-meta">Fall 2026</span>
               </div>
-              <span class="event-card__tag">HACKATHON · CAMPUS · COMET TRACK</span>
+              <div class="event-card__tag">HACKATHON · CAMPUS · COMET TRACK</div>
               <h3 class="event-card__title">Northeastern Skunkworks Hackathon</h3>
-              <p class="event-card__body">
-                48 hours. Multiple tracks including a dedicated agentic-browser track sponsored by Perplexity featuring
-                Comet. Cross-tab research agents, productivity automation, and accessibility builds. Prizes, mentors, and
-                the usual late-night pizza calculus. Open to all Northeastern students.
-              </p>
-              <footer class="event-card__foot">
+              <div class="event-card__body-wrap" id="evt-hack-2026-body">
+                <p class="event-card__body">
+                  48 hours. Multiple tracks including a dedicated agentic-browser track sponsored by Perplexity featuring
+                  Comet. Cross-tab research agents, productivity automation, and accessibility builds. Prizes, mentors,
+                  and the usual late-night pizza calculus. Open to all Northeastern students.
+                </p>
+                <button
+                  class="event-card__reveal"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="evt-hack-2026-body"
+                >
+                  <span class="event-card__lock-icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <rect x="3" y="7" width="10" height="7" rx="1" />
+                      <path d="M 5 7 V 5 a 3 3 0 0 1 6 0 V 7" />
+                    </svg>
+                  </span>
+                  <span class="event-card__lock-text">Details soon — tap to peek</span>
+                </button>
+              </div>
+              <footer class="event-card__footer">
                 <span class="event-card__location">ISEC · Northeastern</span>
-                <a class="event-card__rsvp" href="#hackathon-fall-2026">Details soon ↗</a>
+                <a class="event-card__rsvp" href="#discord-invite" data-discord-invite>Notify me ↗</a>
               </footer>
             </article>
-            <article class="event-card">
-              <div class="event-card__date-block">
-                <span class="event-card__day event-card__day--tbd">TBD</span>
+            <article class="event-card" data-state="locked">
+              <div class="event-card__date">
+                <span class="event-card__date-num">TBD</span>
                 <span class="event-card__date-meta">Q3 2026</span>
               </div>
-              <span class="event-card__tag">SOLO · SKUNKWORKS</span>
+              <div class="event-card__tag">SOLO · SKUNKWORKS</div>
               <h3 class="event-card__title">Speaker Night — frontier-lab researchers</h3>
-              <p class="event-card__body">
-                Quarterly speaker series. Bringing in researchers from frontier labs and adjacent institutions. Past
-                speakers from Anthropic, MIT, Mass General, and Squark.ai. Date and lineup announced via Discord.
-              </p>
-              <footer class="event-card__foot">
+              <div class="event-card__body-wrap" id="evt-speaker-2026-body">
+                <p class="event-card__body">
+                  Quarterly speaker series. Bringing in researchers from frontier labs and adjacent institutions. Past
+                  speakers from Anthropic, MIT, Mass General, and Squark.ai. Date and lineup announced via Discord.
+                </p>
+                <button
+                  class="event-card__reveal"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="evt-speaker-2026-body"
+                >
+                  <span class="event-card__lock-icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <rect x="3" y="7" width="10" height="7" rx="1" />
+                      <path d="M 5 7 V 5 a 3 3 0 0 1 6 0 V 7" />
+                    </svg>
+                  </span>
+                  <span class="event-card__lock-text">Details soon — tap to peek</span>
+                </button>
+              </div>
+              <footer class="event-card__footer">
                 <span class="event-card__location">Format TBD</span>
                 <a class="event-card__rsvp" href="#substack" target="_blank" rel="noopener noreferrer">Subscribe ↗</a
                 ><!-- TODO: paste Substack URL (likely aiskunkworks.substack.com) -->
               </footer>
             </article>
-            <article class="event-card">
-              <div class="event-card__date-block">
-                <span class="event-card__day event-card__day--tbd">TBD</span>
+            <article class="event-card" data-state="locked">
+              <div class="event-card__date">
+                <span class="event-card__date-num">TBD</span>
                 <span class="event-card__date-meta">Q4 2026</span>
               </div>
-              <span class="event-card__tag">COLLAB · PARTNER ORG</span>
+              <div class="event-card__tag">COLLAB · PARTNER ORG</div>
               <h3 class="event-card__title">Cross-org Hack-Jam</h3>
-              <p class="event-card__body">
-                Joint build session with one of our partner organizations. Format TBD. Prior collabs have included the MA
-                AI Hub and Boston Tech Week. Watch Discord for partner reveal and date.
-              </p>
-              <footer class="event-card__foot">
+              <div class="event-card__body-wrap" id="evt-hackjam-2026-body">
+                <p class="event-card__body">
+                  Joint build session with one of our partner organizations — conversations underway with The Open
+                  Accelerator (Red Hat × IBM × MA AI Hub). Format TBD. Prior collabs have included the MA AI Hub and Boston
+                  Tech Week. Watch Discord for partner reveal and date.
+                </p>
+                <button
+                  class="event-card__reveal"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="evt-hackjam-2026-body"
+                >
+                  <span class="event-card__lock-icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <rect x="3" y="7" width="10" height="7" rx="1" />
+                      <path d="M 5 7 V 5 a 3 3 0 0 1 6 0 V 7" />
+                    </svg>
+                  </span>
+                  <span class="event-card__lock-text">Details soon — tap to peek</span>
+                </button>
+              </div>
+              <footer class="event-card__footer">
                 <span class="event-card__location">TBD</span>
-                <a class="event-card__rsvp" href="#discord-invite">Watch this space ↗</a
-                ><!-- TODO: paste Discord invite URL -->
+                <a class="event-card__rsvp" href="#discord-invite" data-discord-invite>Watch Discord ↗</a>
               </footer>
             </article>
           </div>
@@ -138,6 +199,46 @@
             <h2 id="recent-heading">What we ran lately.</h2>
           </header>
           <ol class="event-log">
+            <li class="event-log__entry" data-state="locked">
+              <div class="event-log__meta">
+                <span class="event-log__meta-date">JUN / 2026</span>
+                <span class="event-log__meta-tag">SOLO · SKUNKWORKS</span>
+                <p class="event-log__stat">details landing soon</p>
+              </div>
+              <div class="event-log__content">
+                <h3 class="event-log__title">Keeping it Cool</h3>
+                <div class="event-log__body-wrap" id="evt-cool-jun-2026-body">
+                  <p class="event-log__body">
+                    An AI Skunkworks original — format and specifics being locked in. A summer field operation that leans
+                    into what the unit does best: bring people into the room, give them a real problem, leave space for
+                    the bug to become the discovery. Theme, lineup, venue, and date drop together once the working group
+                    greenlights. Watch Discord.
+                  </p>
+                  <button
+                    class="event-card__reveal event-log__reveal"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="evt-cool-jun-2026-body"
+                  >
+                    <span class="event-card__lock-icon" aria-hidden="true">
+                      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="3" y="7" width="10" height="7" rx="1" />
+                        <path d="M 5 7 V 5 a 3 3 0 0 1 6 0 V 7" />
+                      </svg>
+                    </span>
+                    <span class="event-card__lock-text">Locked — tap for what we can share</span>
+                  </button>
+                </div>
+                <ul class="event-log__chips">
+                  <li class="event-chip">SKUNKWORKS ORIGINAL</li>
+                  <li class="event-chip">SUMMER OPS</li>
+                  <li class="event-chip">TBD</li>
+                </ul>
+                <p class="event-log__cta">
+                  <a href="#discord-invite" data-discord-invite>Get notified ↗</a>
+                </p>
+              </div>
+            </li>
             <li class="event-log__entry">
               <div class="event-log__meta">
                 <span class="event-log__meta-date">MAY 27 / 2026</span>
@@ -160,75 +261,21 @@
             </li>
             <li class="event-log__entry">
               <div class="event-log__meta">
-                <span class="event-log__meta-date">APR / 2026</span>
+                <span class="event-log__meta-date">JAN 6 / 2026</span>
                 <span class="event-log__meta-tag">SOLO · SKUNKWORKS</span>
-                <p class="event-log__stat">~30 skunks deployed</p>
+                <p class="event-log__stat">[N] skunks deployed<!-- TODO: confirm headcount --></p>
               </div>
               <div class="event-log__content">
-                <h3 class="event-log__title">Revival Kickoff</h3>
+                <h3 class="event-log__title">Revival</h3>
                 <p class="event-log__body">
-                  Internal relaunch event. New cohort intake, division leads named, charter ratified. Closed-door working
-                  session followed by Discord onboarding for incoming members. The moment the unit went operational again
-                  after the 2022–2024 quiet period.
+                  The unit went operational again. New charter ratified, six divisions stood up, intake reopened, Discord
+                  pinged for the first time in two years. Affiliation with Humanitarians AI formalized as the institutional
+                  partner. The 2022–2024 quiet period ends here.
                 </p>
                 <ul class="event-log__chips">
-                  <li class="event-chip">INTERNAL</li>
-                  <li class="event-chip">COHORT INTAKE</li>
-                </ul>
-              </div>
-            </li>
-            <!-- PLACEHOLDER: replace with real event before publishing -->
-            <li class="event-log__entry">
-              <div class="event-log__meta">
-                <span class="event-log__meta-date">FEB / 2026</span>
-                <span class="event-log__meta-tag">COLLAB · PARTNER ORG</span>
-                <p class="event-log__stat">8 skunks deployed</p>
-              </div>
-              <div class="event-log__content">
-                <h3 class="event-log__title">Winter Hack-Jam (placeholder)</h3>
-                <p class="event-log__body">
-                  Placeholder entry for a prior partner build session. Replace with the actual event name, date, and field
-                  report before publishing the public log.
-                </p>
-                <ul class="event-log__chips">
-                  <li class="event-chip">PARTNER TBD</li>
-                  <li class="event-chip">HACK-JAM</li>
-                </ul>
-              </div>
-            </li>
-            <li class="event-log__entry">
-              <div class="event-log__meta">
-                <span class="event-log__meta-date">NOV / 2025</span>
-                <span class="event-log__meta-tag">SOLO · SKUNKWORKS</span>
-                <p class="event-log__stat">15 skunks deployed</p>
-              </div>
-              <div class="event-log__content">
-                <h3 class="event-log__title">Fall Speaker Night (placeholder)</h3>
-                <p class="event-log__body">
-                  Placeholder for a completed speaker series installment. Swap in the real lineup, venue, and takeaways
-                  when confirmed with division leads.
-                </p>
-                <ul class="event-log__chips">
-                  <li class="event-chip">SPEAKER SERIES</li>
-                  <li class="event-chip">OPEN CAMPUS</li>
-                </ul>
-              </div>
-            </li>
-            <li class="event-log__entry">
-              <div class="event-log__meta">
-                <span class="event-log__meta-date">SEP / 2025</span>
-                <span class="event-log__meta-tag">HACKATHON · INTERNAL</span>
-                <p class="event-log__stat">20 skunks deployed</p>
-              </div>
-              <div class="event-log__content">
-                <h3 class="event-log__title">Internal Build Sprint (placeholder)</h3>
-                <p class="event-log__body">
-                  Placeholder for an internal semester kickoff hackathon or build sprint. Update with division outputs,
-                  winning projects, and any external judges before go-live.
-                </p>
-                <ul class="event-log__chips">
-                  <li class="event-chip">INTERNAL</li>
-                  <li class="event-chip">BUILD SPRINT</li>
+                  <li class="event-chip">REVIVAL</li>
+                  <li class="event-chip">CHARTER RATIFIED</li>
+                  <li class="event-chip">DIVISIONS ACTIVE</li>
                 </ul>
               </div>
             </li>

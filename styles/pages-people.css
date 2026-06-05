@@ -272,6 +272,113 @@
   color: var(--ink-dim);
 }
 
+/* ——— Locked year entries ——— */
+.year-entry[data-state="locked"] {
+  position: relative;
+}
+
+.year-entry[data-state="locked"] .year-entry__body-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.year-entry[data-state="locked"] .year-entry__bio {
+  filter: blur(7px);
+  opacity: 0.6;
+  user-select: none;
+  pointer-events: none;
+  transition:
+    filter 0.4s ease,
+    opacity 0.4s ease;
+  transform: translateZ(0);
+}
+
+.year-entry[data-state="locked"].is-revealed .year-entry__bio {
+  filter: blur(0);
+  opacity: 1;
+  user-select: text;
+  pointer-events: auto;
+}
+
+.year-entry__reveal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(184, 255, 58, 0.1);
+  border: 1px solid var(--accent-dim);
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 999px;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+  white-space: nowrap;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.year-entry__reveal:hover {
+  background: rgba(184, 255, 58, 0.18);
+  border-color: var(--accent);
+  transform: translate(-50%, -50%) scale(1.02);
+}
+
+.year-entry__reveal:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.year-entry[data-state="locked"].is-revealed .year-entry__reveal {
+  position: static;
+  transform: none;
+  margin-top: 12px;
+  padding: 4px 12px;
+  font-size: 9px;
+  background: transparent;
+  border-color: var(--ink-faint);
+  color: var(--ink-dim);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.year-entry[data-state="locked"].is-revealed .year-entry__reveal:hover {
+  border-color: var(--accent-dim);
+  color: var(--accent);
+  transform: scale(1.02);
+}
+
+.year-entry[data-state="locked"].is-revealed .event-card__lock-text::before {
+  content: "↑ ";
+}
+
+.year-entry[data-state="locked"]::after {
+  content: "TBD · DETAILS PROVISIONAL";
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-family: var(--mono);
+  font-size: 8.5px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  padding: 4px 10px;
+  border: 1px solid var(--accent-dim);
+  background: rgba(184, 255, 58, 0.06);
+  border-radius: 999px;
+  pointer-events: none;
+}
+
 /* ——— Closing CTA ——— */
 .crew-closing {
   max-width: 1100px;
@@ -344,6 +451,11 @@
   .year-block__panel {
     grid-template-columns: 1fr;
   }
+
+  .year-entry__reveal {
+    padding: 6px 12px;
+    font-size: 9px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -354,6 +466,14 @@
   .year-block__summary,
   .year-block__num,
   .year-block__chevron {
+    transition: none;
+  }
+
+  .year-entry[data-state="locked"] .year-entry__bio {
+    transition-duration: 0s;
+  }
+
+  .year-entry__reveal {
     transition: none;
   }
 }

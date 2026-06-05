@@ -77,3 +77,27 @@
     });
   });
 })();
+
+(() => {
+  const revealBtns = document.querySelectorAll(".event-card__reveal, .event-log__reveal, .year-entry__reveal");
+  if (!revealBtns.length) return;
+
+  revealBtns.forEach((btn) => {
+    const lockText = btn.querySelector(".event-card__lock-text, .year-entry__lock-text");
+    const defaultLabel = lockText ? lockText.textContent.trim() : "Details soon — tap to peek";
+
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const wrapper = btn.closest(".event-card, .event-log__entry, .year-entry");
+      if (!wrapper) return;
+
+      const wasRevealed = wrapper.classList.contains("is-revealed");
+      wrapper.classList.toggle("is-revealed");
+
+      btn.setAttribute("aria-expanded", String(!wasRevealed));
+      if (lockText) {
+        lockText.textContent = wasRevealed ? defaultLabel : "Hide details";
+      }
+    });
+  });
+})();

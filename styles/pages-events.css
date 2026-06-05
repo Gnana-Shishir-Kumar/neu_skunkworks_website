@@ -123,11 +123,11 @@
   border: 1px solid var(--line);
 }
 
-.event-card__date-block {
+.event-card__date {
   margin-bottom: var(--space-md);
 }
 
-.event-card__day {
+.event-card__date-num {
   display: block;
   font-family: var(--serif);
   font-size: 64px;
@@ -135,11 +135,6 @@
   font-weight: 300;
   line-height: 1;
   color: var(--accent);
-}
-
-.event-card__day--tbd {
-  font-style: italic;
-  color: var(--ink-dim);
 }
 
 .event-card__date-meta {
@@ -173,16 +168,20 @@
   color: var(--ink);
 }
 
-.event-card__body {
+.event-card__body-wrap {
   flex: 1;
-  margin: 0 0 var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.event-card__body {
+  margin: 0;
   font-family: var(--mono);
   font-size: var(--type-body);
   line-height: 1.6;
   color: var(--ink-dim);
 }
 
-.event-card__foot {
+.event-card__footer {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -209,6 +208,152 @@
 
 .event-card__rsvp:hover {
   color: var(--ink);
+}
+
+/* ——— Locked events (cards + timeline) ——— */
+.event-card[data-state="locked"],
+.event-log__entry[data-state="locked"] {
+  position: relative;
+}
+
+.event-card[data-state="locked"] .event-card__body-wrap,
+.event-log__entry[data-state="locked"] .event-log__body-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.event-card[data-state="locked"] .event-card__body,
+.event-log__entry[data-state="locked"] .event-log__body {
+  filter: blur(7px);
+  opacity: 0.6;
+  user-select: none;
+  pointer-events: none;
+  transition:
+    filter 0.4s ease,
+    opacity 0.4s ease;
+  transform: translateZ(0);
+}
+
+.event-card[data-state="locked"].is-revealed .event-card__body,
+.event-log__entry[data-state="locked"].is-revealed .event-log__body {
+  filter: blur(0);
+  opacity: 1;
+  user-select: text;
+  pointer-events: auto;
+}
+
+.event-card__reveal,
+.event-log__reveal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(184, 255, 58, 0.1);
+  border: 1px solid var(--accent-dim);
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 999px;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+  white-space: nowrap;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.event-card__reveal:hover,
+.event-log__reveal:hover {
+  background: rgba(184, 255, 58, 0.18);
+  border-color: var(--accent);
+  transform: translate(-50%, -50%) scale(1.02);
+}
+
+.event-card__reveal:focus-visible,
+.event-log__reveal:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.event-card__lock-icon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--accent);
+}
+
+.event-card[data-state="locked"].is-revealed .event-card__reveal,
+.event-log__entry[data-state="locked"].is-revealed .event-log__reveal {
+  position: static;
+  transform: none;
+  margin-top: 12px;
+  padding: 4px 12px;
+  font-size: 9px;
+  background: transparent;
+  border-color: var(--ink-faint);
+  color: var(--ink-dim);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.event-card[data-state="locked"].is-revealed .event-card__reveal:hover,
+.event-log__entry[data-state="locked"].is-revealed .event-log__reveal:hover {
+  border-color: var(--accent-dim);
+  color: var(--accent);
+  transform: scale(1.02);
+}
+
+.event-card[data-state="locked"].is-revealed .event-card__lock-text::before,
+.event-log__entry[data-state="locked"].is-revealed .event-card__lock-text::before {
+  content: "↑ ";
+}
+
+.event-card[data-state="locked"]::after {
+  content: "TBD · DETAILS PROVISIONAL";
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-family: var(--mono);
+  font-size: 8.5px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  padding: 4px 10px;
+  border: 1px solid var(--accent-dim);
+  background: rgba(184, 255, 58, 0.06);
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.event-log__entry[data-state="locked"] .event-log__body-wrap::before {
+  content: "TBD · DETAILS PROVISIONAL";
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: var(--mono);
+  font-size: 8.5px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  padding: 4px 10px;
+  border: 1px solid var(--accent-dim);
+  background: rgba(184, 255, 58, 0.06);
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.event-card[data-state="locked"] .event-card__date-num {
+  color: var(--ink-dim);
+  font-style: italic;
 }
 
 /* ——— B: Recent log ——— */
@@ -297,12 +442,39 @@
   color: var(--ink);
 }
 
+.event-log__body-wrap {
+  margin-bottom: var(--space-sm);
+}
+
 .event-log__body {
-  margin: 0 0 var(--space-sm);
+  margin: 0;
   font-family: var(--mono);
   font-size: var(--type-body);
   line-height: 1.6;
   color: var(--ink-dim);
+}
+
+.event-log__content > .event-log__body {
+  margin-bottom: var(--space-sm);
+}
+
+.event-log__cta {
+  margin: var(--space-sm) 0 0;
+  font-family: var(--mono);
+  font-size: var(--type-mono-label);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.event-log__cta a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.event-log__cta a:hover {
+  color: var(--ink);
 }
 
 .event-log__chips {
@@ -418,6 +590,24 @@
 
   .formats-grid {
     grid-template-columns: 1fr;
+  }
+
+  .event-card__reveal,
+  .event-log__reveal {
+    padding: 6px 12px;
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .event-card[data-state="locked"] .event-card__body,
+  .event-log__entry[data-state="locked"] .event-log__body {
+    transition-duration: 0s;
+  }
+
+  .event-card__reveal,
+  .event-log__reveal {
+    transition: none;
   }
 }
 
