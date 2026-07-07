@@ -5,7 +5,8 @@ A simple static website for NEU Skunkworks.
 ## Contents
 
 - `index.html` - main landing page
-- `join.html` - membership or join information
+- `events.html` - events and conversational intake terminal
+- `join.html` - redirects operators to the intake terminal
 - `manifesto.html` - mission statement or manifesto
 - `people.html` - team and contributors
 - `projects.html` - current and past projects
