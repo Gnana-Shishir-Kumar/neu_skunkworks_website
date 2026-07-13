@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="styles/base.css" />
     <link rel="stylesheet" href="styles/components.css" />
     <link rel="stylesheet" href="styles/layout.css" />
+    <link rel="stylesheet" href="styles/pages-events.css" />
   </head>
   <body>
     <div class="site-shell">
@@ -64,28 +65,216 @@
         </nav>
       </div>
       <main class="site-main" id="main">
-        <header class="page-hero">
+        <header class="page-hero events-hero">
           <p class="page-hero__label">§ 04 — Field Operations</p>
-          <h1>Events &amp; Intake</h1>
-          <p>
-            Briefings, build nights, and the single channel for proposals and enlistment.
-            No duplicate forms — everything routes through the intake terminal below.
+          <h1><em>field</em> <span>operations</span></h1>
+          <p class="events-hero__lead">
+            Hackathons, speaker nights, workshops, hack-jams, and the occasional unscheduled all-nighter. Collaborative events with partner orgs and solo runs by the unit. Public log below — intake terminal at the bottom.
           </p>
         </header>
 
-        <section class="page-section" aria-labelledby="events-upcoming">
-          <p class="page-section__label">Upcoming</p>
-          <h2 id="events-upcoming">Scheduled operations</h2>
-          <div class="card">
-            <p class="card__label">Build Night · TBD</p>
-            <p>Open floor for active project crews. Bring hardware, bring models, bring snacks.</p>
+        <section class="page-section" aria-labelledby="events-upcoming" id="upcoming">
+          <p class="page-section__label">§ 04.A — Upcoming Operations</p>
+          <h2 id="events-upcoming">On the schedule.</h2>
+          <p class="page-section__sub">Active intake. RSVP via Discord.</p>
+
+          <div class="upcoming-grid">
+            <article class="event-card" data-state="locked">
+              <div class="event-card__date">
+                <span class="event-card__date-num" style="font-style: italic; color: var(--ink-dim);">TBD</span>
+                <span class="event-card__date-meta">Fall 2026</span>
+              </div>
+              <div class="event-card__tag">HACKATHON · CAMPUS · COMET TRACK</div>
+              <h3 class="event-card__title">Northeastern Skunkworks Hackathon</h3>
+              <div class="event-card__body-wrap" id="evt-hack-2026-body">
+                <p class="event-card__body">48 hours. Multiple tracks including a dedicated agentic-browser track sponsored by Perplexity featuring Comet. Cross-tab research agents, productivity automation, and accessibility builds. Prizes, mentors, and the usual late-night pizza calculus. Open to all Northeastern students.</p>
+                <button class="event-card__reveal" type="button" aria-expanded="false" aria-controls="evt-hack-2026-body">
+                  <span class="event-card__lock-icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <rect x="3" y="7" width="10" height="7" rx="1"/>
+                      <path d="M 5 7 V 5 a 3 3 0 0 1 6 0 V 7"/>
+                    </svg>
+                  </span>
+                  <span class="event-card__lock-text">Details soon — tap to peek</span>
+                </button>
+              </div>
+              <div class="event-card__footer">
+                <span class="event-card__location">ISEC · Northeastern</span>
+                <a class="event-card__rsvp" href="#intake-terminal">Notify me ↗</a>
+              </div>
+            </article>
+
+            <article class="event-card" data-state="locked">
+              <div class="event-card__date">
+                <span class="event-card__date-num" style="font-style: italic; color: var(--ink-dim);">TBD</span>
+                <span class="event-card__date-meta">Q3 2026</span>
+              </div>
+              <div class="event-card__tag">SOLO · SKUNKWORKS</div>
+              <h3 class="event-card__title">Speaker Night — frontier-lab researchers</h3>
+              <div class="event-card__body-wrap" id="evt-speaker-2026-body">
+                <p class="event-card__body">Quarterly speaker series. Bringing in researchers from frontier labs and adjacent institutions. Past speakers from Anthropic, MIT, Mass General, and Squark.ai. Date and lineup announced via Discord.</p>
+                <button class="event-card__reveal" type="button" aria-expanded="false" aria-controls="evt-speaker-2026-body">
+                  <span class="event-card__lock-icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <rect x="3" y="7" width="10" height="7" rx="1"/>
+                      <path d="M 5 7 V 5 a 3 3 0 0 1 6 0 V 7"/>
+                    </svg>
+                  </span>
+                  <span class="event-card__lock-text">Details soon — tap to peek</span>
+                </button>
+              </div>
+              <div class="event-card__footer">
+                <span class="event-card__location">Format TBD</span>
+                <a class="event-card__rsvp" href="#intake-terminal">Subscribe ↗</a>
+              </div>
+            </article>
+
+            <article class="event-card" data-state="locked">
+              <div class="event-card__date">
+                <span class="event-card__date-num" style="font-style: italic; color: var(--ink-dim);">TBD</span>
+                <span class="event-card__date-meta">Q4 2026</span>
+              </div>
+              <div class="event-card__tag">COLLAB · PARTNER ORG</div>
+              <h3 class="event-card__title">Cross-org Hack-Jam</h3>
+              <div class="event-card__body-wrap" id="evt-collab-2026-body">
+                <p class="event-card__body">Joint build session with a partner organization. Active conversations include The Open Accelerator (Red Hat × IBM × MA AI Hub) and their hackathon series in Boston Seaport, plus other regional collaborators. Format TBD. Watch Discord for the date drop.</p>
+                <button class="event-card__reveal" type="button" aria-expanded="false" aria-controls="evt-collab-2026-body">
+                  <span class="event-card__lock-icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <rect x="3" y="7" width="10" height="7" rx="1"/>
+                      <path d="M 5 7 V 5 a 3 3 0 0 1 6 0 V 7"/>
+                    </svg>
+                  </span>
+                  <span class="event-card__lock-text">Details soon — tap to peek</span>
+                </button>
+              </div>
+              <div class="event-card__footer">
+                <span class="event-card__location">TBD</span>
+                <a class="event-card__rsvp" href="#intake-terminal">Watch Discord ↗</a>
+              </div>
+            </article>
           </div>
+        </section>
+
+        <section class="page-section" aria-labelledby="events-recent" id="recent">
+          <p class="page-section__label">§ 04.B — Recent Operations</p>
+          <h2 id="events-recent">What we ran lately.</h2>
+
+          <div class="event-timeline">
+            <article class="event-log" data-state="locked">
+              <div class="event-log__date">
+                <span class="event-log__date-num">JUN / 2026</span>
+                <span class="event-log__date-tag">SOLO · SKUNKWORKS</span>
+                <span class="event-log__stat">details landing soon</span>
+              </div>
+              <div class="event-log__body-wrap" id="log-jun-2026-body">
+                <h3 class="event-log__title">Keeping it Cool</h3>
+                <p class="event-log__body">An AI Skunkworks original — format and specifics being locked in. A summer field operation that leans into what the unit does best: bring people into the room, give them a real problem, leave space for the bug to become the discovery. Theme, lineup, venue, and date drop together once the working group greenlights. Watch Discord.</p>
+                <div class="event-log__chips">
+                  <span class="event-log__chip">SKUNKWORKS ORIGINAL</span>
+                  <span class="event-log__chip">SUMMER OPS</span>
+                  <span class="event-log__chip">TBD</span>
+                </div>
+                <button class="event-log__reveal" type="button" aria-expanded="false" aria-controls="log-jun-2026-body">
+                  <span class="event-card__lock-icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <rect x="3" y="7" width="10" height="7" rx="1"/>
+                      <path d="M 5 7 V 5 a 3 3 0 0 1 6 0 V 7"/>
+                    </svg>
+                  </span>
+                  <span class="event-card__lock-text">Locked — tap for what we can share</span>
+                </button>
+              </div>
+              <div class="event-log__footer">
+                <a class="event-card__rsvp" href="#intake-terminal">Get notified ↗</a>
+              </div>
+            </article>
+
+            <article class="event-log">
+              <div class="event-log__date">
+                <span class="event-log__date-num">MAY 27 / 2026</span>
+                <span class="event-log__date-tag">COLLAB · MA AI HUB · BOSTON TECH WEEK</span>
+                <span class="event-log__stat">12 skunks deployed</span>
+              </div>
+              <div class="event-log__body-wrap">
+                <h3 class="event-log__title">Boston Tech Week</h3>
+                <p class="event-log__body">Joint event with the Massachusetts AI Hub during Boston Tech Week. Skunks ran a demo and discussion table covering ongoing research from the Causal Inference and Explainable AI divisions, plus open-floor Q&amp;A on student-led AI research at Northeastern. First major public appearance for the revived unit.</p>
+                <div class="event-log__chips">
+                  <span class="event-log__chip">MA AI HUB</span>
+                  <span class="event-log__chip">BOSTON TECH WEEK</span>
+                  <span class="event-log__chip">DEMO + DISCUSSION</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="event-log">
+              <div class="event-log__date">
+                <span class="event-log__date-num">JAN 6 / 2026</span>
+                <span class="event-log__date-tag">SOLO · SKUNKWORKS</span>
+                <span class="event-log__stat">[N] skunks deployed</span>
+                <!-- TODO: confirm actual headcount from revival day -->
+              </div>
+              <div class="event-log__body-wrap">
+                <h3 class="event-log__title">Revival</h3>
+                <p class="event-log__body">The unit went operational again. New charter ratified, six divisions stood up, intake reopened, Discord pinged for the first time in two years. Affiliation with Humanitarians AI formalized as the institutional partner. The 2022–2024 quiet period ends here.</p>
+                <div class="event-log__chips">
+                  <span class="event-log__chip">REVIVAL</span>
+                  <span class="event-log__chip">CHARTER RATIFIED</span>
+                  <span class="event-log__chip">DIVISIONS ACTIVE</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="page-section" aria-labelledby="events-formats" id="formats">
+          <p class="page-section__label">§ 04.C — Standing Formats</p>
+          <h2 id="events-formats">What we run on rotation.</h2>
+
+          <div class="format-grid">
+            <article class="format-card">
+              <span class="format-card__num">FORMAT 01</span>
+              <h3 class="format-card__title">Hackathons</h3>
+              <p class="format-card__body">Two major hackathons per year plus smaller internal jams each semester. Sometimes with sponsors, sometimes purely internal.</p>
+            </article>
+            <article class="format-card">
+              <span class="format-card__num">FORMAT 02</span>
+              <h3 class="format-card__title">Speaker Series</h3>
+              <p class="format-card__body">Monthly talks from industry researchers, faculty, and frontier-lab alumni. Open to the broader Northeastern community.</p>
+            </article>
+            <article class="format-card">
+              <span class="format-card__num">FORMAT 03</span>
+              <h3 class="format-card__title">Open-Mic Nights</h3>
+              <p class="format-card__body">Five-minute lightning talks on whatever a skunk is currently obsessed with. Low stakes, high yield.</p>
+            </article>
+            <article class="format-card">
+              <span class="format-card__num">FORMAT 04</span>
+              <h3 class="format-card__title">Workshops</h3>
+              <p class="format-card__body">Hands-on technical workshops led by division members or invited mentors. Topics rotate with the divisions' current focus.</p>
+            </article>
+            <article class="format-card">
+              <span class="format-card__num">FORMAT 05</span>
+              <h3 class="format-card__title">Reading Groups</h3>
+              <p class="format-card__body">Each division runs a weekly paper-reading session. Open to drop-ins. Schedule lives in Discord.</p>
+            </article>
+            <article class="format-card">
+              <span class="format-card__num">FORMAT 06</span>
+              <h3 class="format-card__title">Partner Collabs</h3>
+              <p class="format-card__body">Joint events with the MA AI Hub, Boston Tech Week, Humanitarians AI, The Open Accelerator, and other regional partners. Format varies.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="page-section stay-loop" aria-labelledby="events-loop">
+          <p class="page-section__label">§ 04.D — Stay In The Loop</p>
+          <h2 id="events-loop">Get the next event before it fills up.</h2>
+          <p class="stay-loop__sub">Event announcements go to Discord first, then Substack, then everywhere else. RSVPs open ~2 weeks out. Use the intake terminal below to introduce yourself and get pinged.</p>
         </section>
 
         <!--
           Part 5 — Submission wiring (see intake spec):
           Option B: set SUBMISSION_ENDPOINT in scripts/intake.js to your Google Apps Script web app URL.
-          Option C (default): Teams channel fallback — zero backend.
+          Option C (default): mailto fallback to aiskunkworks@northeastern.edu — zero backend.
           Confirmation only on 2xx fetch responses; retry button on failure.
         -->
         <section
@@ -113,14 +302,8 @@
 
           <noscript>
             <p class="intake-terminal__noscript">
-              JavaScript is required for the conversational intake.
-              <a
-                href="https://teams.microsoft.com/l/team/19%3A7ACgmmCnJRhXGO6rRHUua4wjhAElX1LEaDPXNghBxdI1%40thread.tacv2/conversations?groupId=8d0df033-fecb-40db-aa49-140617ba3e18&amp;tenantId=a8eec281-aaa3-4dae-ac9b-9a398b9215e7"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Open the Teams channel
-              </a>
+              JavaScript is required for the conversational intake. Send us a note directly at
+              <a href="mailto:aiskunkworks@northeastern.edu">aiskunkworks@northeastern.edu</a>
               with your name, project idea, and how to reach you.
             </p>
           </noscript>
@@ -181,16 +364,20 @@
             <div class="site-footer__col">
               <h2 class="site-footer__col-title">Channels</h2>
               <ul class="site-footer__list">
-                <li><a href="#secure-feed">Secure feed</a></li>
-                <li><a href="#field-line">Field line</a></li>
-                <li><a href="#dead-drop">Dead drop</a></li>
+                <li><a href="#discord-invite" target="_blank" rel="noopener noreferrer">Discord</a></li>
+                <!-- TODO: paste real Discord invite URL -->
+                <li><a href="#substack" target="_blank" rel="noopener noreferrer">Substack</a></li>
+                <!-- TODO: paste real Substack URL -->
+                <li><a href="https://www.linkedin.com/company/aiskunkworks/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="https://instagram.com/aiskunkworks" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                <li><a href="https://github.com/skunkworksneu" target="_blank" rel="noopener noreferrer">GitHub</a></li>
               </ul>
             </div>
             <div class="site-footer__col">
               <h2 class="site-footer__col-title">Contact</h2>
               <ul class="site-footer__list">
-                <li><a href="https://teams.microsoft.com/l/team/19%3A7ACgmmCnJRhXGO6rRHUua4wjhAElX1LEaDPXNghBxdI1%40thread.tacv2/conversations?groupId=8d0df033-fecb-40db-aa49-140617ba3e18&amp;tenantId=a8eec281-aaa3-4dae-ac9b-9a398b9215e7" target="_blank" rel="noopener noreferrer">Teams channel</a></li>
-                <li><a href="https://teams.microsoft.com/l/team/19%3A7ACgmmCnJRhXGO6rRHUua4wjhAElX1LEaDPXNghBxdI1%40thread.tacv2/conversations?groupId=8d0df033-fecb-40db-aa49-140617ba3e18&amp;tenantId=a8eec281-aaa3-4dae-ac9b-9a398b9215e7" target="_blank" rel="noopener noreferrer">Comms request</a></li>
+                <li><a href="mailto:aiskunkworks@northeastern.edu">aiskunkworks@northeastern.edu</a></li>
+                <li><a href="events.html#intake-terminal">Intake terminal ↗</a></li>
               </ul>
             </div>
           </div>
@@ -203,5 +390,6 @@
     </div>
     <script src="scripts/main.js" defer></script>
     <script src="scripts/intake.js" defer></script>
+    <script src="scripts/events.js" defer></script>
   </body>
 </html>

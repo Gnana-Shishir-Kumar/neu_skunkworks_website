@@ -4,8 +4,7 @@
 (function () {
   "use strict";
 
-  var TEAMS_CONTACT_URL =
-    "https://teams.microsoft.com/l/team/19%3A7ACgmmCnJRhXGO6rRHUua4wjhAElX1LEaDPXNghBxdI1%40thread.tacv2/conversations?groupId=8d0df033-fecb-40db-aa49-140617ba3e18&tenantId=a8eec281-aaa3-4dae-ac9b-9a398b9215e7";
+  var INTAKE_EMAIL = "aiskunkworks@northeastern.edu";
   // Option B — Google Apps Script: deploy web app URL here before publishing.
   var SUBMISSION_ENDPOINT = "";
 
@@ -286,8 +285,27 @@
     retry.focus();
   }
 
-  function submitViaTeams() {
-    window.open(TEAMS_CONTACT_URL, "_blank", "noopener,noreferrer");
+  function buildMailtoUrl(data) {
+    var subject = encodeURIComponent("[INTAKE] " + data.title);
+    var body = encodeURIComponent(
+      "Name: " +
+        data.name +
+        "\nEmail: " +
+        data.email +
+        "\nProject: " +
+        data.title +
+        "\n\nDescription:\n" +
+        data.description +
+        "\n\nRole: " +
+        data.role +
+        "\nCommitment: " +
+        data.commitment
+    );
+    return "mailto:" + INTAKE_EMAIL + "?subject=" + subject + "&body=" + body;
+  }
+
+  function submitViaMailto(data) {
+    window.location.href = buildMailtoUrl(data);
     showConfirmation();
   }
 
@@ -344,7 +362,7 @@
         });
     } else {
       submitting = false;
-      submitViaTeams();
+      submitViaMailto(payload);
     }
   }
 
