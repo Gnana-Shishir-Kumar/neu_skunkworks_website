@@ -1,0 +1,139 @@
+/**
+ * AI Skunkworks — crew page (people.html)
+ */
+
+.page-hero--crew .page-hero__title-italic {
+  font-family: var(--serif);
+  font-size: var(--type-h1-hero);
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.1;
+  margin-bottom: var(--space-md);
+}
+
+.page-hero__lead {
+  max-width: 45rem;
+  padding-left: var(--space-sm);
+  border-left: 2px solid var(--accent-dim);
+  font-size: var(--text-sm);
+  color: var(--ink-dim);
+  line-height: 1.6;
+}
+
+.crew-toc {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2xs);
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.crew-toc a {
+  color: var(--ink-dim);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.crew-toc a:hover {
+  color: var(--accent);
+}
+
+.crew-toc__sep {
+  color: var(--ink-faint);
+  user-select: none;
+}
+
+.officer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: var(--space-md);
+}
+
+.officer-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--paper-2);
+  padding: var(--space-md);
+}
+
+.officer-card__role {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-2xs);
+}
+
+.officer-card__name {
+  font-family: var(--serif);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin: 0 0 var(--space-2xs);
+}
+
+.officer-card__meta {
+  margin: 0;
+  font-size: var(--text-xs);
+  color: var(--ink-dim);
+}
+
+.officer-card--tbd {
+  border-style: dashed;
+  opacity: 0.85;
+}
+
+.partner-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.partner-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--paper-2);
+  padding: var(--space-md);
+}
+
+.partner-card__name {
+  margin: 0 0 var(--space-2xs);
+  font-family: var(--mono);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+}
+
+.partner-card p {
+  margin: 0;
+  color: var(--ink-dim);
+}
+
+.support-prompt {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--paper-2);
+  padding: var(--space-md);
+}
+
+.contact-block p {
+  color: var(--ink-dim);
+}
+
+.page-section ul {
+  margin: 0;
+  padding-left: var(--space-md);
+  color: var(--ink-dim);
+}
+
+.page-section li + li {
+  margin-top: var(--space-2xs);
+}

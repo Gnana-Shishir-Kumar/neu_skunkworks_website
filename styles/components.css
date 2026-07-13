@@ -217,23 +217,131 @@
   font-variant-numeric: tabular-nums;
 }
 
-@media (max-width: 56rem) {
-  .site-sticky-nav__inner {
-    grid-template-columns: 1fr;
-    justify-items: stretch;
-  }
+.site-sticky-nav__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--paper-3);
+  cursor: pointer;
+  justify-self: end;
+}
 
-  .site-sticky-nav__brand {
-    justify-self: start;
+.site-sticky-nav__toggle-bar {
+  display: block;
+  width: 1rem;
+  height: 2px;
+  margin: 0 auto;
+  background: var(--accent);
+}
+
+.site-sticky-nav__toggle:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.site-mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-mobile-menu);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  padding: var(--space-xl) var(--space-md);
+}
+
+.site-mobile-menu[hidden] {
+  display: none;
+}
+
+.site-mobile-menu__close {
+  position: absolute;
+  top: calc(var(--classification-banner-h) + var(--space-sm));
+  right: var(--space-md);
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--paper-3);
+  color: var(--ink);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.site-mobile-menu__close:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.site-mobile-menu__links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-mobile-menu__links a {
+  font-family: var(--serif);
+  font-size: 1.4375rem;
+  font-weight: 600;
+  color: var(--ink-dim);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.site-mobile-menu__links a:hover,
+.site-mobile-menu__links a[aria-current="page"] {
+  color: var(--accent);
+}
+
+.site-mobile-menu__links a:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 4px;
+}
+
+@media (max-width: 720px) {
+  .site-sticky-nav__inner {
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
   }
 
   .site-sticky-nav__links {
-    justify-self: stretch;
-    justify-content: flex-start;
+    display: none;
+  }
+
+  .site-sticky-nav__toggle {
+    display: inline-flex;
+  }
+
+  .site-sticky-nav__clock {
+    display: none;
   }
 
   .site-sticky-nav__meta {
-    justify-self: start;
+    justify-self: end;
+  }
+
+  .site-sticky-nav__brand-text {
+    min-width: 0;
+  }
+
+  .site-sticky-nav__brand-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 12rem;
   }
 }
 

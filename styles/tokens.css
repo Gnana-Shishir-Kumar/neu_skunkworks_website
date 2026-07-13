@@ -46,6 +46,10 @@
   --text-lg: 1.375rem;
   --text-xl: 1.75rem;
   --text-2xl: 2.25rem;
+  --type-h1-hero: clamp(2.25rem, 5vw, 3.25rem);
+
+  /* Muted ink (footer sub-links) */
+  --ink-mute: #5a5a54;
 
   /* Radii */
   --radius-sm: 2px;
@@ -64,6 +68,7 @@
   --z-content: 10;
   --z-sticky-nav: 100;
   --z-classification: 101;
+  --z-mobile-menu: 200;
 
   /* Sticky chrome (classification banner height → nav offset) */
   --classification-banner-h: 2.75rem;

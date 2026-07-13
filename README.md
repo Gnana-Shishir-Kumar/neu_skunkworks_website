@@ -5,13 +5,13 @@ A simple static website for NEU Skunkworks.
 ## Contents
 
 - `index.html` - main landing page
-- `events.html` - events and conversational intake terminal
-- `join.html` - redirects operators to the intake terminal
-- `manifesto.html` - mission statement or manifesto
-- `people.html` - team and contributors
 - `projects.html` - current and past projects
-- `scripts/main.js` - JavaScript used by the site
-- `styles/` - CSS styles for layout, components, and tokens
+- `manifesto.html` - mission statement or manifesto
+- `people.html` - crew roster, institutional dossier, and contact
+- `events.html` - events and conversational intake terminal
+- `scripts/main.js` - site behavior (clock, mobile nav, crew TOC)
+- `scripts/intake.js` - intake terminal on events page
+- `styles/` - CSS styles for layout, components, tokens, and crew page
 
 ## Local Preview
 

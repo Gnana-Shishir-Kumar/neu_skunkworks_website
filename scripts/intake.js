@@ -4,7 +4,8 @@
 (function () {
   "use strict";
 
-  var INTAKE_EMAIL = "unit47@skunkworks.ai";
+  var TEAMS_CONTACT_URL =
+    "https://teams.microsoft.com/l/team/19%3A7ACgmmCnJRhXGO6rRHUua4wjhAElX1LEaDPXNghBxdI1%40thread.tacv2/conversations?groupId=8d0df033-fecb-40db-aa49-140617ba3e18&tenantId=a8eec281-aaa3-4dae-ac9b-9a398b9215e7";
   // Option B — Google Apps Script: deploy web app URL here before publishing.
   var SUBMISSION_ENDPOINT = "";
 
@@ -104,7 +105,7 @@
 
     var label = document.createElement("span");
     label.className = "intake-terminal__msg-label";
-    label.textContent = role === "bot" ? "UNIT-47" : "YOU";
+    label.textContent = role === "bot" ? "INTAKE" : "YOU";
 
     var body = document.createElement("p");
     body.className = "intake-terminal__msg-text";
@@ -285,23 +286,9 @@
     retry.focus();
   }
 
-  function buildMailtoUrl(data) {
-    var subject = encodeURIComponent("[INTAKE] " + data.title);
-    var body = encodeURIComponent(
-      "Name: " +
-        data.name +
-        "\nEmail: " +
-        data.email +
-        "\nProject: " +
-        data.title +
-        "\n\nDescription:\n" +
-        data.description +
-        "\n\nRole: " +
-        data.role +
-        "\nCommitment: " +
-        data.commitment
-    );
-    return "mailto:" + INTAKE_EMAIL + "?subject=" + subject + "&body=" + body;
+  function submitViaTeams() {
+    window.open(TEAMS_CONTACT_URL, "_blank", "noopener,noreferrer");
+    showConfirmation();
   }
 
   function submitViaFetch(endpoint, data) {
@@ -321,11 +308,6 @@
     }).then(function (res) {
       return res.ok;
     });
-  }
-
-  function submitViaMailto(data) {
-    window.location.href = buildMailtoUrl(data);
-    showConfirmation();
   }
 
   function finish() {
@@ -362,7 +344,7 @@
         });
     } else {
       submitting = false;
-      submitViaMailto(payload);
+      submitViaTeams();
     }
   }
 
