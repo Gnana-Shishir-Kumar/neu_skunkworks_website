@@ -33,7 +33,7 @@
   margin: 0 0 40px;
   font-family: var(--serif);
   font-weight: 300;
-  font-size: 30px;
+  font-size: var(--type-pullprose);
   line-height: 1.4;
   color: var(--ink);
 }
@@ -47,7 +47,7 @@
   margin: 0 0 20px;
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 16px;
+  font-size: var(--type-body-lg);
   line-height: 1.8;
   color: var(--ink-dim);
 }
@@ -60,7 +60,7 @@
   margin: 0;
   font-family: var(--serif);
   font-weight: 400;
-  font-size: var(--text-xl);
+  font-size: var(--type-h2-section);
 }
 
 .page-section__sub {
@@ -82,7 +82,7 @@
 .tenets li {
   position: relative;
   counter-increment: tenet;
-  padding: 18px 0 18px 60px;
+  padding: 18px 0 18px 5.25rem;
   border-top: 1px solid var(--line);
 }
 
@@ -95,8 +95,9 @@
   position: absolute;
   left: 0;
   top: 18px;
+  width: 4.5rem;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--type-mono-label);
   letter-spacing: 0.22em;
   color: var(--accent);
 }
@@ -108,7 +109,7 @@
 }
 
 .tenets li span {
-  font-size: 13px;
+  font-size: var(--type-body);
   line-height: 1.55;
   color: var(--ink-dim);
 }
@@ -130,7 +131,7 @@
 .irr-card__label {
   margin: 0 0 14px;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--type-mono-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--accent);
@@ -140,14 +141,14 @@
   margin: 0 0 10px;
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 22px;
+  font-size: var(--type-h3-card);
   line-height: 1.15;
   color: var(--ink);
 }
 
 .irr-card p {
   margin: 0;
-  font-size: 13px;
+  font-size: var(--type-body);
   line-height: 1.6;
   color: var(--ink-dim);
 }
@@ -164,7 +165,7 @@
   font-family: var(--serif);
   font-style: italic;
   font-weight: 400;
-  font-size: 40px;
+  font-size: var(--type-h2-section);
   color: var(--ink);
   line-height: 1.2;
 }
@@ -180,10 +181,6 @@
   .irreducibles__grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .manifesto-close__title {
-    font-size: 28px;
-  }
 }
 
 @media (max-width: 40rem) {
@@ -193,9 +190,5 @@
 
   .origin {
     padding: 0;
-  }
-
-  .origin__pullquote {
-    font-size: 24px;
   }
 }

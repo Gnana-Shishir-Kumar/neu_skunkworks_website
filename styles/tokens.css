@@ -47,6 +47,12 @@
   --text-xl: 1.75rem;
   --text-2xl: 2.25rem;
   --type-h1-hero: clamp(2.25rem, 5vw, 3.25rem);
+  --type-h2-section: 1.75rem; /* 28px — page-section heads */
+  --type-h3-card: 1.75rem; /* 28px — card titles (ops-grid 32 / layer 28 / division 24) */
+  --type-pullprose: clamp(1.5rem, 3vw, 1.875rem); /* 24–30px — premise, pullquotes */
+  --type-body-lg: 1rem; /* 16px — long-form / CTA supporting copy */
+  --type-body: 0.8125rem; /* 13px — card & tenet body copy */
+  --type-mono-label: 0.625rem; /* 10px — uppercase mono labels */
 
   /* Muted ink (footer sub-links) */
   --ink-mute: #5a5a54;
@@ -67,9 +73,8 @@
   --z-scan: 2;
   --z-content: 10;
   --z-sticky-nav: 100;
-  --z-classification: 101;
   --z-mobile-menu: 200;
 
-  /* Sticky chrome (classification banner height → nav offset) */
-  --classification-banner-h: 2.75rem;
+  /* Sticky chrome offset used by scroll-margin / floating UI */
+  --classification-banner-h: 0rem;
 }

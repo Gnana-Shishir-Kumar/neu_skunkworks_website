@@ -5,10 +5,11 @@
   "use strict";
 
   var INTAKE_EMAIL = "aiskunkworks@northeastern.edu";
-  // Option B — Google Apps Script: deploy web app URL here before publishing.
+  // TODO: Option B — Google Apps Script: deploy web app URL here before publishing.
   var SUBMISSION_ENDPOINT = "";
 
   var TOTAL_STEPS = 6;
+  var REF_ALPHANUM = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
   var STEPS = [
     {
@@ -32,38 +33,48 @@
       },
     },
     {
-      key: "title",
-      prompt: "What's the operation? Give your project or proposal a codename.",
+      key: "affiliation",
+      prompt: "Unit affiliation. College, major, year — or where you're coming from.",
       type: "text",
-      placeholder: "Project codename",
+      placeholder: "e.g. Khoury, CS, 3rd year",
       validate: function (v) {
-        return v.trim().length >= 3 ? null : "Give us at least 3 characters.";
+        return v.trim().length >= 2 ? null : "Need at least 2 characters.";
       },
     },
     {
-      key: "description",
-      prompt: "Briefing document. What are you building, and why does it matter?",
+      key: "division",
+      prompt: "Which division are you reporting to?",
+      type: "choice",
+      choices: [
+        "Causal Inference",
+        "Explainable AI",
+        "Visual Analytics",
+        "ML Observability",
+        "Kaggle Group",
+        "Gauguin",
+      ],
+    },
+    {
+      key: "intent",
+      prompt: "Mission intent. What are you here to build, learn, or contribute?",
       type: "textarea",
-      placeholder: "Describe the idea, scope, and what you need from the unit…",
+      placeholder: "Why you're joining, what you want to work on…",
       validate: function (v) {
         return v.trim().length >= 20 ? null : "A bit more detail — at least 20 characters.";
       },
     },
     {
-      key: "role",
-      prompt: "What's your specialty in the field?",
-      type: "choice",
-      choices: ["Builder / Engineer", "Researcher", "Designer", "Ops / PM", "Other"],
-    },
-    {
-      key: "commitment",
-      prompt: "Availability status. How deep are you going?",
-      type: "choice",
-      choices: [
-        "Full commit — this is my main op",
-        "Part-time — nights & weekends",
-        "Exploring — reconnaissance only",
-      ],
+      key: "discord",
+      prompt: "Discord handle. How do we find you on the ops channel?",
+      type: "text",
+      placeholder: "username or username#0000",
+      validate: function (v) {
+        var handle = v.trim();
+        if (handle.length < 2 || handle.length > 32) {
+          return "Enter a Discord handle (2–32 characters).";
+        }
+        return null;
+      },
     },
   ];
 
@@ -81,6 +92,14 @@
   var answers = {};
   var history = [];
   var submitting = false;
+
+  function generateReferenceCode() {
+    var code = "";
+    for (var i = 0; i < 6; i++) {
+      code += REF_ALPHANUM.charAt(Math.floor(Math.random() * REF_ALPHANUM.length));
+    }
+    return "SKW-" + code;
+  }
 
   function announceStep() {
     if (!stepAnnouncer) return;
@@ -254,20 +273,22 @@
     renderStep();
   }
 
-  function showConfirmation() {
+  function showConfirmation(referenceCode) {
     clearInputHost();
     showBack(false);
     appendMessage(
       "bot",
-      "Transmission received. Your intake is logged — we'll be in touch through secure channels."
+      "Transmission received. Your intake is logged — reference " +
+        referenceCode +
+        ". We'll be in touch through secure channels."
     );
     var done = document.createElement("p");
     done.className = "intake-terminal__status intake-terminal__status--ok";
-    done.textContent = "✓ Intake complete";
+    done.textContent = "✓ Intake complete — " + referenceCode;
     inputHost.appendChild(done);
   }
 
-  function showRetry(message) {
+  function showRetry(message, referenceCode) {
     clearInputHost();
     showBack(false);
     appendMessage(
@@ -279,34 +300,36 @@
     retry.className = "btn btn--primary";
     retry.textContent = "Retry transmission";
     retry.addEventListener("click", function () {
-      finish();
+      finish(referenceCode);
     });
     inputHost.appendChild(retry);
     retry.focus();
   }
 
   function buildMailtoUrl(data) {
-    var subject = encodeURIComponent("[INTAKE] " + data.title);
+    var subject = encodeURIComponent("[INTAKE] " + data.referenceCode + " — " + data.name);
     var body = encodeURIComponent(
-      "Name: " +
+      "Reference: " +
+        data.referenceCode +
+        "\nName: " +
         data.name +
         "\nEmail: " +
         data.email +
-        "\nProject: " +
-        data.title +
-        "\n\nDescription:\n" +
-        data.description +
-        "\n\nRole: " +
-        data.role +
-        "\nCommitment: " +
-        data.commitment
+        "\nAffiliation: " +
+        data.affiliation +
+        "\nDivision: " +
+        data.division +
+        "\n\nIntent:\n" +
+        data.intent +
+        "\n\nDiscord: " +
+        data.discord
     );
     return "mailto:" + INTAKE_EMAIL + "?subject=" + subject + "&body=" + body;
   }
 
   function submitViaMailto(data) {
     window.location.href = buildMailtoUrl(data);
-    showConfirmation();
+    showConfirmation(data.referenceCode);
   }
 
   function submitViaFetch(endpoint, data) {
@@ -316,19 +339,20 @@
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         timestamp: new Date().toISOString(),
+        referenceCode: data.referenceCode,
         name: data.name,
         email: data.email,
-        title: data.title,
-        description: data.description,
-        role: data.role,
-        commitment: data.commitment,
+        affiliation: data.affiliation,
+        division: data.division,
+        intent: data.intent,
+        discord: data.discord,
       }),
     }).then(function (res) {
       return res.ok;
     });
   }
 
-  function finish() {
+  function finish(existingReferenceCode) {
     // TODO: wire real submission target before publishing — see Part 5 of the intake spec
     if (submitting) return;
     submitting = true;
@@ -337,13 +361,16 @@
     showBack(false);
     appendMessage("bot", "Encrypting and transmitting your intake package…");
 
+    var referenceCode = existingReferenceCode || generateReferenceCode();
+
     var payload = {
+      referenceCode: referenceCode,
       name: answers.name,
       email: answers.email,
-      title: answers.title,
-      description: answers.description,
-      role: answers.role,
-      commitment: answers.commitment,
+      affiliation: answers.affiliation,
+      division: answers.division,
+      intent: answers.intent,
+      discord: answers.discord,
     };
 
     if (SUBMISSION_ENDPOINT) {
@@ -351,14 +378,14 @@
         .then(function (ok) {
           submitting = false;
           if (ok) {
-            showConfirmation();
+            showConfirmation(referenceCode);
           } else {
-            showRetry();
+            showRetry(null, referenceCode);
           }
         })
         .catch(function () {
           submitting = false;
-          showRetry();
+          showRetry(null, referenceCode);
         });
     } else {
       submitting = false;

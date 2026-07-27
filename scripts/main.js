@@ -80,7 +80,6 @@
       e.preventDefault();
 
       var stickyOffset =
-        (document.querySelector(".classification-banner")?.offsetHeight || 0) +
         (document.querySelector(".site-sticky-nav")?.offsetHeight || 0) +
         24;
 
@@ -101,6 +100,7 @@
 (function () {
   "use strict";
 
+  /* Legacy button accordion (if any remain) */
   document.querySelectorAll(".accordion__trigger").forEach(function (trigger) {
     trigger.addEventListener("click", function () {
       var panelId = trigger.getAttribute("aria-controls");
@@ -111,5 +111,89 @@
       trigger.setAttribute("aria-expanded", expanded ? "false" : "true");
       panel.hidden = expanded;
     });
+  });
+
+  /* Expand / Collapse All for <details class="crew-year"> */
+  var yearRoot = document.querySelector(".crew-years");
+  if (!yearRoot) return;
+
+  document.querySelectorAll('[data-action="expand-all"]').forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      yearRoot.querySelectorAll(".crew-year").forEach(function (el) {
+        el.open = true;
+      });
+    });
+  });
+
+  document.querySelectorAll('[data-action="collapse-all"]').forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      yearRoot.querySelectorAll(".crew-year").forEach(function (el) {
+        el.open = false;
+      });
+    });
+  });
+})();
+
+/* ——— Command tenure strip ——— */
+(function () {
+  "use strict";
+
+  var root = document.querySelector("[data-lead-cloud]");
+  if (!root) return;
+
+  var pills = Array.prototype.slice.call(root.querySelectorAll("[data-lead-orb]"));
+  var panels = Array.prototype.slice.call(root.querySelectorAll("[data-tenure-panel]"));
+
+  function setExpanded(panelId, expanded) {
+    pills.forEach(function (pill) {
+      if (pill.getAttribute("aria-controls") === panelId) {
+        pill.setAttribute("aria-expanded", expanded ? "true" : "false");
+      }
+    });
+  }
+
+  function closeAll(exceptId) {
+    pills.forEach(function (pill) {
+      var panelId = pill.getAttribute("aria-controls");
+      if (exceptId && panelId === exceptId) return;
+      pill.setAttribute("aria-expanded", "false");
+    });
+
+    panels.forEach(function (panel) {
+      if (exceptId && panel.id === exceptId) return;
+      panel.hidden = true;
+    });
+
+    if (!exceptId) root.classList.remove("is-open");
+  }
+
+  function openPanel(pill) {
+    var panelId = pill.getAttribute("aria-controls");
+    var panel = panelId ? document.getElementById(panelId) : null;
+    if (!panel) return;
+
+    var alreadyOpen = pill.getAttribute("aria-expanded") === "true";
+    closeAll();
+
+    if (alreadyOpen) {
+      root.classList.remove("is-open");
+      return;
+    }
+
+    setExpanded(panelId, true);
+    panel.hidden = false;
+    root.classList.add("is-open");
+  }
+
+  pills.forEach(function (pill) {
+    pill.addEventListener("click", function () {
+      openPanel(pill);
+    });
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    if (!root.classList.contains("is-open")) return;
+    closeAll();
   });
 })();

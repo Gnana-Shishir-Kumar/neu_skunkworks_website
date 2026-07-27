@@ -45,7 +45,7 @@
   padding: 4px 0 4px 20px;
   border-left: 2px solid var(--accent-dim);
   font-family: var(--mono);
-  font-size: 14px;
+  font-size: var(--type-body);
   color: var(--ink-dim);
   line-height: 1.6;
 }
@@ -78,7 +78,7 @@
 }
 
 .page-section__kicker .page-section__label {
-  font-size: 11px;
+  font-size: var(--type-mono-label);
   letter-spacing: 0.22em;
   margin-bottom: var(--space-2xs);
 }
@@ -86,7 +86,7 @@
 .page-section__kicker-sub {
   margin: 0;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--type-mono-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--ink-faint);
@@ -100,14 +100,14 @@
   margin: 0;
   font-family: var(--serif);
   font-weight: 400;
-  font-size: var(--text-xl);
+  font-size: var(--type-h2-section);
 }
 
 .premise__para {
   margin: 0 0 1.25rem;
   font-family: var(--serif);
   font-weight: 300;
-  font-size: 30px;
+  font-size: var(--type-pullprose);
   line-height: 1.35;
   color: var(--ink);
 }
@@ -140,7 +140,7 @@
 .layer-card__label {
   margin: 0 0 16px;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: var(--type-mono-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--accent);
@@ -150,7 +150,7 @@
   margin: 0 0 8px;
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 28px;
+  font-size: var(--type-h3-card);
   line-height: 1.1;
   color: var(--ink);
 }
@@ -158,7 +158,7 @@
 .layer-card__sub {
   margin: 0 0 20px;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--type-mono-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--ink-dim);
@@ -166,7 +166,7 @@
 
 .layer-card__body {
   margin: 0;
-  font-size: 13px;
+  font-size: var(--type-body);
   line-height: 1.65;
   color: var(--ink-dim);
 }
@@ -231,14 +231,14 @@
 
 .ops-grid__id {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--type-mono-label);
   letter-spacing: 0.22em;
   color: var(--ink-faint);
 }
 
 .ops-grid__tag {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--type-mono-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--ink-dim);
@@ -252,14 +252,14 @@
   margin: 0 0 16px;
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 32px;
+  font-size: var(--type-h3-card);
   line-height: 1.1;
   color: var(--ink);
 }
 
 .ops-grid__body {
   margin: 0 0 24px;
-  font-size: 13px;
+  font-size: var(--type-body);
   line-height: 1.65;
   color: var(--ink-dim);
 }
@@ -272,7 +272,7 @@
   padding-top: 16px;
   border-top: 1px dashed var(--line);
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--type-mono-label);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--ink-dim);
@@ -340,7 +340,7 @@
 .affiliations__label {
   margin: 0 0 24px;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--type-mono-label);
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--ink-dim);
@@ -373,7 +373,7 @@
 .affiliations__sub {
   margin: 20px 0 0;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--type-mono-label);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ink-faint);
@@ -391,7 +391,7 @@
   margin: 0 0 20px;
   font-family: var(--serif);
   font-weight: 300;
-  font-size: 26px;
+  font-size: var(--type-pullprose);
   line-height: 1.35;
   color: var(--ink);
 }
@@ -411,7 +411,7 @@
 .tenets li {
   position: relative;
   counter-increment: tenet;
-  padding: 18px 0 18px 60px;
+  padding: 18px 0 18px 5.25rem;
   border-top: 1px solid var(--line);
 }
 
@@ -424,8 +424,9 @@
   position: absolute;
   left: 0;
   top: 18px;
+  width: 4.5rem;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--type-mono-label);
   letter-spacing: 0.22em;
   color: var(--accent);
 }
@@ -437,7 +438,7 @@
 }
 
 .tenets li span {
-  font-size: 13px;
+  font-size: var(--type-body);
   line-height: 1.55;
   color: var(--ink-dim);
 }
@@ -493,10 +494,6 @@
 
   .page-section__kicker {
     position: static;
-  }
-
-  .premise__para {
-    font-size: 22px;
   }
 
   .index-hero h1 {
