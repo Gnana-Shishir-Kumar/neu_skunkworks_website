@@ -1,73 +1,32 @@
-# AI Skunkworks — Northeastern
+# neu_skunkworks_website
 
-Northeastern student-led AI research group site: a static, multi-page front end with shared chrome (classification banner, sticky nav, footer) and no build step. Open the HTML files directly or serve the folder with any static file server.
+A simple static website for NEU Skunkworks.
 
-**Pronunciation:** "AI Skunkworks" (not "skunkworks A.I.")
+## Contents
 
-**Domain:** [skunk.ai](https://skunk.ai)
+- `index.html` - main landing page
+- `projects.html` - current and past projects
+- `manifesto.html` - mission statement or manifesto
+- `people.html` - crew roster, institutional dossier, and contact
+- `events.html` - events and conversational intake terminal
+- `scripts/main.js` - site behavior (clock, mobile nav, crew TOC)
+- `scripts/intake.js` - intake terminal on events page
+- `styles/` - CSS styles for layout, components, tokens, and crew page
 
-## Run locally
+## Local Preview
 
-From the project root:
+Open any `.html` file directly in your browser, or use a simple local server for a better development workflow.
 
-```bash
+### Recommended
+
+```powershell
+cd d:\Projects\neu_skunkworks_website
 python -m http.server 8000
 ```
 
-Then open [http://localhost:8000](http://localhost:8000).
+Then open `http://localhost:8000` in your browser.
 
-Or open `index.html` in your browser (relative asset paths work when served from the repo root).
+## Notes
 
-## Structure
-
-```
-ai-skunkworks/
-├── assets/
-│   ├── skunkworks-logo.jpg
-│   └── favicon.png
-├── index.html
-├── projects.html
-├── manifesto.html
-├── people.html
-├── events.html
-├── scripts/
-│   └── main.js
-└── styles/
-    ├── tokens.css
-    ├── base.css
-    ├── components.css
-    ├── layout.css
-    ├── pages-index.css
-    ├── pages-events.css
-    ├── pages-people.css
-    └── pages-projects.css
-```
-
-Replace `assets/skunkworks-logo.jpg` with the official NEU round badge (`skunkworksneu_logo.jpg`) when available; `favicon.png` is derived from the same source.
-
-## Deploying to GitHub Pages
-
-1. Push the repo to GitHub.
-2. In the repository, go to **Settings → Pages**.
-3. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
-4. Choose branch **main** and folder **/ (root)**.
-5. Save. The site will be served from the repo root after the next deploy.
-
-The `.nojekyll` file at the repo root tells GitHub Pages not to run Jekyll (so paths and static assets behave as expected).
-
-## Channels
-
-Canonical order (footer and CTAs):
-
-1. **Discord** — community + day-to-day discussion (`#discord-invite` until invite URL is set)
-2. **Substack** — writing, announcements, project logs (`#substack` until URL is set)
-3. **LinkedIn** — [linkedin.com/company/aiskunkworks](https://www.linkedin.com/company/aiskunkworks/)
-4. **Instagram** — [instagram.com/aiskunkworks](https://instagram.com/aiskunkworks)
-5. **GitHub** — [github.com/skunkworksneu](https://github.com/skunkworksneu)
-6. **Email** — [aiskunkworks@northeastern.edu](mailto:aiskunkworks@northeastern.edu)
-
-## Conventions
-
-- **Class names:** BEM-style blocks such as `site-sticky-nav__*`, `site-brand__*`, and `site-footer__*`.
-- **Theming:** Use CSS custom properties from `styles/tokens.css`; avoid hardcoded colors except the classification banner red (`#ff3a3a`).
-- **Active nav:** Set `aria-current="page"` on the current page’s link in each HTML file. There is no client-side routing.
+- This is a static website, with no build step required.
+- Add any assets, tooling, or environment files to `.gitignore` as needed.

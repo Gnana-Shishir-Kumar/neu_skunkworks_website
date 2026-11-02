@@ -1,0 +1,194 @@
+/**
+ * AI Skunkworks — manifesto / charter page
+ */
+
+/* ——— Hero ——— */
+.manifesto-hero h1 {
+  font-family: var(--serif);
+  font-size: var(--type-h1-hero);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.manifesto-hero h1 em {
+  font-style: italic;
+  font-weight: 300;
+}
+
+.manifesto-hero h1 span {
+  font-style: normal;
+  font-weight: 900;
+}
+
+/* ——— Origin ——— */
+.origin {
+  max-width: 780px;
+  margin: 40px auto 80px;
+  padding: 0 32px;
+}
+
+.origin__pullquote {
+  margin: 0 0 40px;
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: var(--type-pullprose);
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.origin__pullquote em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.origin__body {
+  margin: 0 0 20px;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: var(--type-body-lg);
+  line-height: 1.8;
+  color: var(--ink-dim);
+}
+
+.page-section__head {
+  margin-bottom: var(--space-lg);
+}
+
+.page-section__head h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: var(--type-h2-section);
+}
+
+.page-section__sub {
+  max-width: 44rem;
+  margin: var(--space-sm) 0 0;
+  font-size: var(--text-sm);
+  color: var(--ink-dim);
+  line-height: 1.55;
+}
+
+/* ——— Tenets ——— */
+.tenets {
+  list-style: none;
+  counter-reset: tenet;
+  margin: 0;
+  padding: 0;
+}
+
+.tenets li {
+  position: relative;
+  counter-increment: tenet;
+  padding: 18px 0 18px 5.25rem;
+  border-top: 1px solid var(--line);
+}
+
+.tenets li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.tenets li::before {
+  content: "TENET." counter(tenet, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 18px;
+  width: 4.5rem;
+  font-family: var(--mono);
+  font-size: var(--type-mono-label);
+  letter-spacing: 0.22em;
+  color: var(--accent);
+}
+
+.tenets li strong {
+  display: block;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.tenets li span {
+  font-size: var(--type-body);
+  line-height: 1.55;
+  color: var(--ink-dim);
+}
+
+/* ——— Irreducibles ——— */
+.irreducibles__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.irr-card {
+  padding: 28px;
+  background: var(--paper);
+}
+
+.irr-card__label {
+  margin: 0 0 14px;
+  font-family: var(--mono);
+  font-size: var(--type-mono-label);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.irr-card h3 {
+  margin: 0 0 10px;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: var(--type-h3-card);
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.irr-card p {
+  margin: 0;
+  font-size: var(--type-body);
+  line-height: 1.6;
+  color: var(--ink-dim);
+}
+
+/* ——— Closing ——— */
+.manifesto-close {
+  padding: 100px 0;
+  text-align: center;
+}
+
+.manifesto-close__title {
+  max-width: 720px;
+  margin: 0 auto 40px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--type-h2-section);
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.manifesto-close__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+@media (max-width: 56.25rem) {
+  .irreducibles__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 40rem) {
+  .irreducibles__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .origin {
+    padding: 0;
+  }
+}

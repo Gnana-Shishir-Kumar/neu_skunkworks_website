@@ -1,14 +1,10 @@
 /**
  * AI Skunkworks — site behavior
  */
+
+/* ——— UTC clock ——— */
 (function () {
   "use strict";
-
-  /** @type {{ discordInvite: string }} */
-  var SKUNKWORKS_LINKS = {
-    // TODO: paste Discord invite URL when live
-    discordInvite: "#discord-invite",
-  };
 
   function tickClock() {
     var el = document.getElementById("clock");
@@ -21,84 +17,184 @@
     el.textContent = h + ":" + m + ":" + s + " Z";
   }
 
-  function wireDiscordLinks() {
-    if (SKUNKWORKS_LINKS.discordInvite.charAt(0) === "#") return;
-    var links = document.querySelectorAll("[data-discord-invite]");
-    for (var i = 0; i < links.length; i++) {
-      links[i].setAttribute("href", SKUNKWORKS_LINKS.discordInvite);
-      links[i].setAttribute("target", "_blank");
-      links[i].setAttribute("rel", "noopener noreferrer");
-    }
-  }
-
   tickClock();
   setInterval(tickClock, 1000);
-  wireDiscordLinks();
 })();
 
-(() => {
-  function getStickyChromeOffset() {
-    const banner = document.querySelector(".classification-banner");
-    const siteNav = document.querySelector(".site-sticky-nav");
-    let offset = 16;
-    if (banner) offset += banner.offsetHeight;
-    if (siteNav) offset += siteNav.offsetHeight;
-    return offset;
+/* ——— Mobile nav hamburger ——— */
+(function () {
+  "use strict";
+
+  var toggle = document.querySelector(".site-sticky-nav__toggle");
+  var menu = document.getElementById("site-mobile-menu");
+  var closeBtn = document.querySelector(".site-mobile-menu__close");
+  if (!toggle || !menu) return;
+
+  function openMenu() {
+    menu.hidden = false;
+    toggle.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+    if (closeBtn) closeBtn.focus();
   }
 
-  const expandBtn = document.querySelector('[data-action="expand-all-years"]');
-  const collapseBtn = document.querySelector('[data-action="collapse-all-years"]');
-  const yearBlocks = document.querySelectorAll(".year-block");
-  if (!expandBtn || !collapseBtn || !yearBlocks.length) return;
+  function closeMenu() {
+    menu.hidden = true;
+    toggle.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+    toggle.focus();
+  }
 
-  expandBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    yearBlocks.forEach((b) => b.setAttribute("open", ""));
+  toggle.addEventListener("click", function () {
+    if (menu.hidden) {
+      openMenu();
+    } else {
+      closeMenu();
+    }
   });
-  collapseBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    yearBlocks.forEach((b) => b.removeAttribute("open"));
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closeMenu);
+  }
+
+  menu.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", closeMenu);
   });
 
-  const hash = location.hash;
-  if (!hash) return;
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && !menu.hidden) {
+      closeMenu();
+    }
+  });
+})();
 
-  const block = document.querySelector(hash);
-  if (!block || !block.classList.contains("year-block")) return;
+/* ——— Crew page table of contents ——— */
+(function () {
+  var tocLinks = document.querySelectorAll(".crew-toc a[href^='#']");
+  if (!tocLinks.length) return;
 
-  block.setAttribute("open", "");
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  tocLinks.forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      var targetId = link.getAttribute("href").slice(1);
+      var target = document.getElementById(targetId);
+      if (!target) return;
+      e.preventDefault();
 
-  requestAnimationFrame(() => {
-    const top = block.getBoundingClientRect().top + window.scrollY - getStickyChromeOffset();
-    window.scrollTo({
-      top,
-      behavior: reducedMotion ? "auto" : "smooth",
+      var stickyOffset =
+        (document.querySelector(".site-sticky-nav")?.offsetHeight || 0) +
+        24;
+
+      var targetY = target.getBoundingClientRect().top + window.scrollY - stickyOffset;
+
+      var prefersReduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({
+        top: targetY,
+        behavior: prefersReduce ? "auto" : "smooth",
+      });
+
+      history.replaceState(null, "", "#" + targetId);
     });
   });
 })();
 
-(() => {
-  const revealBtns = document.querySelectorAll(".event-card__reveal, .event-log__reveal, .year-entry__reveal");
-  if (!revealBtns.length) return;
+/* ——— Year archives accordion ——— */
+(function () {
+  "use strict";
 
-  revealBtns.forEach((btn) => {
-    const lockText = btn.querySelector(".event-card__lock-text, .year-entry__lock-text");
-    const defaultLabel = lockText ? lockText.textContent.trim() : "Details soon — tap to peek";
+  /* Legacy button accordion (if any remain) */
+  document.querySelectorAll(".accordion__trigger").forEach(function (trigger) {
+    trigger.addEventListener("click", function () {
+      var panelId = trigger.getAttribute("aria-controls");
+      var panel = panelId ? document.getElementById(panelId) : null;
+      if (!panel) return;
 
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      const wrapper = btn.closest(".event-card, .event-log__entry, .year-entry");
-      if (!wrapper) return;
+      var expanded = trigger.getAttribute("aria-expanded") === "true";
+      trigger.setAttribute("aria-expanded", expanded ? "false" : "true");
+      panel.hidden = expanded;
+    });
+  });
 
-      const wasRevealed = wrapper.classList.contains("is-revealed");
-      wrapper.classList.toggle("is-revealed");
+  /* Expand / Collapse All for <details class="crew-year"> */
+  var yearRoot = document.querySelector(".crew-years");
+  if (!yearRoot) return;
 
-      btn.setAttribute("aria-expanded", String(!wasRevealed));
-      if (lockText) {
-        lockText.textContent = wasRevealed ? defaultLabel : "Hide details";
+  document.querySelectorAll('[data-action="expand-all"]').forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      yearRoot.querySelectorAll(".crew-year").forEach(function (el) {
+        el.open = true;
+      });
+    });
+  });
+
+  document.querySelectorAll('[data-action="collapse-all"]').forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      yearRoot.querySelectorAll(".crew-year").forEach(function (el) {
+        el.open = false;
+      });
+    });
+  });
+})();
+
+/* ——— Command tenure strip ——— */
+(function () {
+  "use strict";
+
+  var root = document.querySelector("[data-lead-cloud]");
+  if (!root) return;
+
+  var pills = Array.prototype.slice.call(root.querySelectorAll("[data-lead-orb]"));
+  var panels = Array.prototype.slice.call(root.querySelectorAll("[data-tenure-panel]"));
+
+  function setExpanded(panelId, expanded) {
+    pills.forEach(function (pill) {
+      if (pill.getAttribute("aria-controls") === panelId) {
+        pill.setAttribute("aria-expanded", expanded ? "true" : "false");
       }
     });
+  }
+
+  function closeAll(exceptId) {
+    pills.forEach(function (pill) {
+      var panelId = pill.getAttribute("aria-controls");
+      if (exceptId && panelId === exceptId) return;
+      pill.setAttribute("aria-expanded", "false");
+    });
+
+    panels.forEach(function (panel) {
+      if (exceptId && panel.id === exceptId) return;
+      panel.hidden = true;
+    });
+
+    if (!exceptId) root.classList.remove("is-open");
+  }
+
+  function openPanel(pill) {
+    var panelId = pill.getAttribute("aria-controls");
+    var panel = panelId ? document.getElementById(panelId) : null;
+    if (!panel) return;
+
+    var alreadyOpen = pill.getAttribute("aria-expanded") === "true";
+    closeAll();
+
+    if (alreadyOpen) {
+      root.classList.remove("is-open");
+      return;
+    }
+
+    setExpanded(panelId, true);
+    panel.hidden = false;
+    root.classList.add("is-open");
+  }
+
+  pills.forEach(function (pill) {
+    pill.addEventListener("click", function () {
+      openPanel(pill);
+    });
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    if (!root.classList.contains("is-open")) return;
+    closeAll();
   });
 })();
 

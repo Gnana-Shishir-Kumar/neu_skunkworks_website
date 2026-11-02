@@ -4,13 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Crew — AI Skunkworks</title>
-    <meta
-      name="description"
-      content="Unit lineage for Northeastern AI Skunkworks — founded 2019, revived Jan 2026. Alumni, founders, division leads, and the crew timeline from founding to present."
-    />
-    <link rel="icon" type="image/jpeg" href="assets/skunkworks-logo.jpg" />
-    <meta property="og:image" content="https://skunk.ai/assets/skunkworks-logo.jpg" />
-    <meta property="og:url" content="https://skunk.ai/people.html" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -25,22 +18,13 @@
   </head>
   <body>
     <div class="site-shell">
-      <div class="classification-banner" role="note" aria-label="Classification marking">
-        <p class="classification-banner__text">◆ TS//SCI&nbsp;&nbsp;&nbsp;&nbsp;NOFORN&nbsp;&nbsp;&nbsp;&nbsp;HANDLE VIA SPECIAL ACCESS CHANNELS&nbsp;&nbsp;&nbsp;&nbsp;EYES ONLY&nbsp;&nbsp;&nbsp;&nbsp;◆</p>
-      </div>
       <header class="site-sticky-nav">
         <div class="site-sticky-nav__inner">
-          <a class="site-brand" href="index.html" aria-label="AI Skunkworks — home">
-            <img
-              class="site-brand__logo"
-              src="assets/skunkworks-logo.jpg"
-              alt="AI Skunkworks logo — Northeastern University, Boston"
-              width="44"
-              height="44"
-            />
-            <span class="site-brand__wordmark">
-              <strong>AI Skunkworks</strong>
-              <small>Northeastern · est. 2019</small>
+          <a class="site-sticky-nav__brand" href="index.html">
+            <img class="brand-logo" src="assets/skunkworksneu_logo.jpg" alt="" width="36" height="36" />
+            <span class="site-sticky-nav__brand-text">
+              <span class="site-sticky-nav__brand-title">AI Skunkworks</span>
+              <span class="site-sticky-nav__brand-sub">Northeastern · est. 2019</span>
             </span>
           </a>
           <nav class="site-sticky-nav__links" aria-label="Primary">
@@ -53,338 +37,516 @@
           <div class="site-sticky-nav__meta">
             <span class="site-sticky-nav__pulse" aria-hidden="true"></span>
             <span id="clock" class="site-sticky-nav__clock">00:00:00 Z</span>
+            <button
+              type="button"
+              class="site-sticky-nav__toggle"
+              aria-expanded="false"
+              aria-controls="site-mobile-menu"
+              aria-label="Open menu"
+            >
+              <span class="site-sticky-nav__toggle-bar" aria-hidden="true"></span>
+              <span class="site-sticky-nav__toggle-bar" aria-hidden="true"></span>
+              <span class="site-sticky-nav__toggle-bar" aria-hidden="true"></span>
+            </button>
           </div>
         </div>
       </header>
-
-      <main class="site-main site-main--people" id="main">
-        <section class="crew-hero crew-wrap" aria-labelledby="crew-hero-title">
-          <p class="crew-hero__eyebrow">§ 03 — UNIT LINEAGE</p>
-          <h1 class="crew-hero__title" id="crew-hero-title">
-            <span class="crew-hero__line crew-hero__line--italic">the</span>
-            <span class="crew-hero__line crew-hero__line--bold">crew</span>
-          </h1>
-          <p class="crew-hero__lead">
-            Founded 2019. Quiet 2022–2024. Revived Jan 2026. Every cohort below has shipped projects, written papers, and gone
-            on to do interesting work — and most of them still show up to mentor the next round.
+      <div id="site-mobile-menu" class="site-mobile-menu" hidden>
+        <button type="button" class="site-mobile-menu__close" aria-label="Close menu">×</button>
+        <nav class="site-mobile-menu__links" aria-label="Mobile primary">
+          <a href="index.html">00 — Index</a>
+          <a href="projects.html">01 — Projects</a>
+          <a href="manifesto.html">02 — Manifesto</a>
+          <a href="people.html" aria-current="page">03 — Crew</a>
+          <a href="events.html">04 — Events</a>
+        </nav>
+      </div>
+      <main class="site-main" id="main">
+        <header class="page-hero page-hero--crew">
+          <p class="page-hero__label">§ 03 — CREW &amp; INSTITUTIONAL DOSSIER</p>
+          <h1 class="page-hero__title-italic">the crew</h1>
+          <p class="page-hero__lead">
+            Founded 2019. Quiet 2022–2024. Revived January 6, 2026. Below: who we are, the cohort
+            timeline, the current command structure, our institutional partners, and how to reach us.
           </p>
+        </header>
+
+        <nav class="crew-toc" aria-label="Crew page sections">
+          <a href="#about">About us</a>
+          <span class="crew-toc__sep" aria-hidden="true">·</span>
+          <a href="#year-archives">Year archives</a>
+          <span class="crew-toc__sep" aria-hidden="true">·</span>
+          <a href="#principles">Principles</a>
+          <span class="crew-toc__sep" aria-hidden="true">·</span>
+          <a href="#command">Command</a>
+          <span class="crew-toc__sep" aria-hidden="true">·</span>
+          <a href="#partners">Partners</a>
+          <span class="crew-toc__sep" aria-hidden="true">·</span>
+          <a href="#support">Support</a>
+          <span class="crew-toc__sep" aria-hidden="true">·</span>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <section id="about" class="page-section" aria-labelledby="about-title">
+          <p class="page-section__label">§ 03.A — About us</p>
+          <h2 id="about-title">Who we are</h2>
+          <div class="about-prose">
+            <p>
+              AI Skunkworks is one of the most active graduate student units at Northeastern for
+              research and builds in modern AI. We give students a platform to ship real work —
+              not just coursework — in artificial intelligence, machine learning, and deep learning.
+              Founded 2019, quiet through 2022–2024, revived January 2026 — the mission hasn't moved.
+            </p>
+            <p>
+              Formed under the guidance of Professor Nik Bear Brown (Computer Science Ph.D., UCLA).
+              He remains faculty advisor, bringing 10+ years of AI/ML industry experience to guide
+              researchers. Students learn the stack, then lead the next cohort — a knowledge-transfer
+              loop. Core principle: <em>learn by doing</em>.
+            </p>
+            <p>
+              We prefer real problems over theory theater. Active collaborations include Harvard
+              Medical School and Boston Children's Hospital on computational biology research.
+              In-house work spans visual analytics, causal inference, model interpretability, and
+              the rest of the active divisions on the projects board.
+            </p>
+          </div>
         </section>
 
+        <section id="year-archives" class="page-section" aria-labelledby="crew-archives-title">
+          <p class="page-section__label">§ 03.B — Year archives</p>
+          <h2 id="crew-archives-title">Cohort timeline</h2>
+          <div class="crew-year-controls">
+            <button type="button" class="btn" data-action="expand-all">Expand All</button>
+            <button type="button" class="btn" data-action="collapse-all">Collapse All</button>
+          </div>
+          <div class="crew-years">
+            <details class="crew-year">
+              <summary class="crew-year__summary">
+                <span>2019 — founding cohort</span>
+                <span aria-hidden="true">▾</span>
+              </summary>
+              <div class="crew-year__panel">
+                <p>
+                  AI Skunkworks launched at Northeastern as a student-led collective for
+                  experimental ML work outside the formal curriculum.
+                </p>
+              </div>
+            </details>
+            <!-- [PLACEHOLDER — confirm details] -->
+            <details class="crew-year">
+              <summary class="crew-year__summary">
+                <span>2020 — early expansion</span>
+                <span aria-hidden="true">▾</span>
+              </summary>
+              <div class="crew-year__panel">
+                <p>
+                  Second cohort grows the research groups and early project files. Remote-year
+                  adaptations begin as campus operations shift.
+                </p>
+              </div>
+            </details>
+            <!-- [PLACEHOLDER — confirm details] -->
+            <details class="crew-year">
+              <summary class="crew-year__summary">
+                <span>2021 — project density</span>
+                <span aria-hidden="true">▾</span>
+              </summary>
+              <div class="crew-year__panel">
+                <p>
+                  Peak pre-quiet activity: Explainable AI deployments, competition work, and
+                  mentorship pairings across Khoury and allied labs.
+                </p>
+              </div>
+            </details>
+            <details class="crew-year">
+              <summary class="crew-year__summary">
+                <span>2022–2024 — quiet period</span>
+                <span aria-hidden="true">▾</span>
+              </summary>
+              <div class="crew-year__panel">
+                <p>
+                  Operations paused while founders graduated and projects went dormant. The name
+                  and mission persisted informally.
+                </p>
+              </div>
+            </details>
+            <!-- [PLACEHOLDER — confirm details] -->
+            <details class="crew-year">
+              <summary class="crew-year__summary">
+                <span>2025 — recon phase</span>
+                <span aria-hidden="true">▾</span>
+              </summary>
+              <div class="crew-year__panel">
+                <p>
+                  Informal reconvening among alumni and faculty ahead of the formal 2026 revival.
+                  Charter drafts and division outlines circulate privately.
+                </p>
+              </div>
+            </details>
+            <details class="crew-year" id="year-2026" open>
+              <summary class="crew-year__summary">
+                <span>2026 — revival cohort</span>
+                <span aria-hidden="true">▾</span>
+              </summary>
+              <div class="crew-year__panel">
+                <p>
+                  Officially revived January 6, 2026. New command structure, new projects, roster
+                  filling in as crews spin up.
+                </p>
+              </div>
+            </details>
+          </div>
+        </section>
 
-        <div class="crew-accordion" id="crew-accordion">
-          <div class="crew-accordion__toolbar">
-            <p class="crew-accordion__label">§ 03.A — COHORTS BY YEAR</p>
-            <div class="crew-accordion__controls">
-              <button class="year-control" type="button" data-action="expand-all-years">EXPAND ALL +</button>
-              <button class="year-control" type="button" data-action="collapse-all-years">COLLAPSE ALL —</button>
-            </div>
+        <section id="principles" class="page-section" aria-labelledby="principles-title">
+          <p class="page-section__label">§ 03.C — Operating principle</p>
+          <h2 id="principles-title">How we operate</h2>
+          <div class="principle-grid">
+            <article class="principle-card">
+              <p class="principle-card__label">PRINCIPLE · 01</p>
+              <h3 class="principle-card__title">Open by default</h3>
+              <p class="principle-card__body">
+                Research, code, and failures get published, not just wins. The postmortem is part of
+                the deliverable.
+              </p>
+            </article>
+            <article class="principle-card">
+              <p class="principle-card__label">PRINCIPLE · 02</p>
+              <h3 class="principle-card__title">Small teams, real stakes</h3>
+              <p class="principle-card__body">
+                No busywork. Every project ships or dies visibly — short loops, honest status, no
+                slide-deck theater.
+              </p>
+            </article>
+            <article class="principle-card">
+              <p class="principle-card__label">PRINCIPLE · 03</p>
+              <h3 class="principle-card__title">Mentorship over hierarchy</h3>
+              <p class="principle-card__body">
+                Faculty and industry mentors advise, they don't gatekeep. If you carry a project,
+                you're crew.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section id="command" class="page-section" aria-labelledby="command-title">
+          <p class="page-section__label">§ 03.D — Command structure</p>
+          <h2 id="command-title">Current officers</h2>
+          <div class="officer-grid">
+            <article class="officer-card">
+              <p class="officer-card__role">Faculty advisor</p>
+              <h3 class="officer-card__name">Prof. Nik</h3>
+              <p class="officer-card__meta">Khoury College · sets strategic direction and institutional cover</p>
+            </article>
+            <article class="officer-card">
+              <p class="officer-card__role">President</p>
+              <h3 class="officer-card__name">Gnana Sishir Kumar</h3>
+              <p class="officer-card__meta">Overall direction, culture, and unit accountability</p>
+            </article>
+            <article class="officer-card">
+              <p class="officer-card__role">VP Research &amp; Development</p>
+              <h3 class="officer-card__name">Aravind Balaji</h3>
+              <p class="officer-card__meta">Technical direction, paper &amp; experiment pipeline</p>
+            </article>
+            <article class="officer-card">
+              <p class="officer-card__role">VP Technology</p>
+              <h3 class="officer-card__name">Vanshi</h3>
+              <p class="officer-card__meta">Infrastructure, repos, deployment</p>
+            </article>
+            <article class="officer-card">
+              <p class="officer-card__role">VP Marketing</p>
+              <h3 class="officer-card__name">Ratan</h3>
+              <p class="officer-card__meta">Partners, events, external comms</p>
+            </article>
+            <article class="officer-card">
+              <p class="officer-card__role">VP Research Operations</p>
+              <h3 class="officer-card__name">Je Sai Kailash</h3>
+              <p class="officer-card__meta">Research ops, coordination across divisions</p>
+            </article>
+            <article class="officer-card">
+              <p class="officer-card__role">Treasurer</p>
+              <h3 class="officer-card__name">Jaisukh</h3>
+              <p class="officer-card__meta">Budget, funding, and financial tracking</p>
+            </article>
           </div>
 
-          <details class="year-block" id="y-2026" open>
-            <summary class="year-block__summary">
-              <span class="year-block__num">2026</span>
-              <span class="year-block__era">Current Operations</span>
-              <span class="year-block__tally">11 entries</span>
-              <span class="year-block__chevron" aria-hidden="true"></span>
-            </summary>
-            <div class="year-block__panel">
-              <article class="year-entry">
-                <span class="year-entry__tag">MILESTONE</span>
-                <h3 class="year-entry__name">Unit reactivated.</h3>
-                <p class="year-entry__bio">
-                  Jan 6, 2026 — after the 2022–2024 quiet period, the unit went operational again under new leadership.
-                  Charter ratified, six divisions stood up, intake reopened. Affiliation with Humanitarians AI formalized as
-                  the institutional partner.
-                </p>
-              </article>
-              <article class="year-entry">
-                <span class="year-entry__tag">MILESTONE</span>
-                <h3 class="year-entry__name">Boston Tech Week / MA AI Hub collaboration</h3>
-                <p class="year-entry__bio">
-                  May 27, 2026 — first major public field op of the revived unit. Joint event with the Massachusetts AI
-                  Hub during Boston Tech Week.
-                </p>
-              </article>
-              <article class="year-entry" data-state="locked">
-                <span class="year-entry__tag">FORTHCOMING</span>
-                <h3 class="year-entry__name">Keeping it Cool</h3>
-                <div class="year-entry__body-wrap" id="crew-cool-2026-body">
-                  <p class="year-entry__bio">
-                    An AI Skunkworks original — format and specifics being locked in. A summer field operation that leans into
-                    what the unit does best: bring people into the room, give them a real problem, leave space for the bug
-                    to become the discovery. Theme, lineup, venue, and date drop together once the working group greenlights.
-                    Watch Discord.
-                  </p>
-                  <button
-                    class="event-card__reveal year-entry__reveal"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="crew-cool-2026-body"
-                  >
-                    <span class="event-card__lock-icon" aria-hidden="true">
-                      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <rect x="3" y="7" width="10" height="7" rx="1" />
-                        <path d="M 5 7 V 5 a 3 3 0 0 1 6 0 V 7" />
-                      </svg>
-                    </span>
-                    <span class="event-card__lock-text">Locked — tap for what we can share</span>
-                  </button>
+          <div class="lead-cloud" data-lead-cloud>
+            <p class="lead-cloud__label">Tenure strip · click a lead</p>
+            <div class="lead-marquee" aria-label="Position leads">
+              <div class="lead-marquee__fade lead-marquee__fade--left" aria-hidden="true"></div>
+              <div class="lead-marquee__fade lead-marquee__fade--right" aria-hidden="true"></div>
+              <div class="lead-marquee__track">
+                <div class="lead-marquee__group">
+                  <button type="button" class="lead-pill" data-lead-orb aria-expanded="false" aria-controls="tenure-faculty">FacultyAdvisor</button>
+                  <button type="button" class="lead-pill" data-lead-orb aria-expanded="false" aria-controls="tenure-president">President</button>
+                  <button type="button" class="lead-pill" data-lead-orb aria-expanded="false" aria-controls="tenure-rnd">VPResearch&amp;Development</button>
+                  <button type="button" class="lead-pill" data-lead-orb aria-expanded="false" aria-controls="tenure-tech">VPTechnology</button>
+                  <button type="button" class="lead-pill" data-lead-orb aria-expanded="false" aria-controls="tenure-marketing">VPMarketing</button>
+                  <button type="button" class="lead-pill" data-lead-orb aria-expanded="false" aria-controls="tenure-research-ops">VPResearchOperations</button>
+                  <button type="button" class="lead-pill" data-lead-orb aria-expanded="false" aria-controls="tenure-treasurer">Treasurer</button>
                 </div>
-              </article>
-              <article class="year-entry">
-                <span class="year-entry__tag">MILESTONE</span>
-                <h3 class="year-entry__name">Six divisions active</h3>
-                <p class="year-entry__bio">
-                  Causal Inference · Explainable AI · Visual Analytics · ML Observability · Kaggle · Gauguin. Weekly
-                  meetings, open intake.
-                </p>
-              </article>
-              <article class="year-entry">
-                <span class="year-entry__tag">PARTNERSHIP</span>
-                <h3 class="year-entry__name">The Open Accelerator (TOA)</h3>
-                <p class="year-entry__role">Boston AI ecosystem collab</p>
-                <p class="year-entry__bio">
-                  Conversations opened with the Red Hat × IBM × MA AI Hub initiative in Boston Seaport. Future joint
-                  events around their hackathon series likely. Initiative is a natural fit: open-source AI tooling,
-                  student-friendly format, MA-based.
-                </p>
-              </article>
-              <article class="year-entry">
-                <span class="year-entry__tag">LEAD</span>
-                <!-- TODO -->
-                <h3 class="year-entry__name">[Causal Inference Lead]</h3>
-                <p class="year-entry__role">Division Lead · 2026–</p>
-                <p class="year-entry__bio">Leads the Causal Inference division. [Bio TBD.]</p>
-              </article>
-              <article class="year-entry">
-                <span class="year-entry__tag">LEAD</span>
-                <!-- TODO -->
-                <h3 class="year-entry__name">[Explainable AI Lead]</h3>
-                <p class="year-entry__role">Division Lead · 2026–</p>
-                <p class="year-entry__bio">Leads the Explainable AI division. [Bio TBD.]</p>
-              </article>
-              <article class="year-entry">
-                <span class="year-entry__tag">LEAD</span>
-                <!-- TODO -->
-                <h3 class="year-entry__name">[Visual Analytics Lead]</h3>
-                <p class="year-entry__role">Division Lead · 2026–</p>
-                <p class="year-entry__bio">Leads the Visual Analytics division. [Bio TBD.]</p>
-              </article>
-              <article class="year-entry">
-                <span class="year-entry__tag">LEAD</span>
-                <!-- TODO -->
-                <h3 class="year-entry__name">[ML Observability Lead]</h3>
-                <p class="year-entry__role">Division Lead · 2026–</p>
-                <p class="year-entry__bio">Leads the ML Observability division. [Bio TBD.]</p>
-              </article>
-              <article class="year-entry">
-                <span class="year-entry__tag">LEAD</span>
-                <!-- TODO -->
-                <h3 class="year-entry__name">[Kaggle Group Lead]</h3>
-                <p class="year-entry__role">Division Lead · 2026–</p>
-                <p class="year-entry__bio">Leads the Kaggle competition division. [Bio TBD.]</p>
-              </article>
-              <article class="year-entry">
-                <span class="year-entry__tag">LEAD</span>
-                <!-- TODO -->
-                <h3 class="year-entry__name">[Gauguin Lead]</h3>
-                <p class="year-entry__role">Division Lead · 2026–</p>
-                <p class="year-entry__bio">Leads the Gauguin generative-art division. [Bio TBD.]</p>
-              </article>
+                <div class="lead-marquee__group" aria-hidden="true">
+                  <button type="button" class="lead-pill" tabindex="-1" data-lead-orb aria-expanded="false" aria-controls="tenure-faculty">FacultyAdvisor</button>
+                  <button type="button" class="lead-pill" tabindex="-1" data-lead-orb aria-expanded="false" aria-controls="tenure-president">President</button>
+                  <button type="button" class="lead-pill" tabindex="-1" data-lead-orb aria-expanded="false" aria-controls="tenure-rnd">VPResearch&amp;Development</button>
+                  <button type="button" class="lead-pill" tabindex="-1" data-lead-orb aria-expanded="false" aria-controls="tenure-tech">VPTechnology</button>
+                  <button type="button" class="lead-pill" tabindex="-1" data-lead-orb aria-expanded="false" aria-controls="tenure-marketing">VPMarketing</button>
+                  <button type="button" class="lead-pill" tabindex="-1" data-lead-orb aria-expanded="false" aria-controls="tenure-research-ops">VPResearchOperations</button>
+                  <button type="button" class="lead-pill" tabindex="-1" data-lead-orb aria-expanded="false" aria-controls="tenure-treasurer">Treasurer</button>
+                </div>
+              </div>
             </div>
-          </details>
 
-          <details class="year-block" id="y-2025">
-            <summary class="year-block__summary">
-              <span class="year-block__num">2025</span>
-              <span class="year-block__era">Transition Year</span>
-              <span class="year-block__tally">1 entry</span>
-              <span class="year-block__chevron" aria-hidden="true"></span>
-            </summary>
-            <div class="year-block__panel">
-              <article class="year-entry">
-                <span class="year-entry__tag">LOG</span>
-                <h3 class="year-entry__name">Reorganization underway.</h3>
-                <p class="year-entry__bio">
-                  Charter drafting, division lead recruitment, alumni outreach. No public operations during the rebuild.
-                </p>
-              </article>
+            <div class="lead-cloud__panels">
+              <div id="tenure-faculty" class="tenure-panel" hidden data-tenure-panel>
+                <p class="tenure-panel__role">Faculty advisor</p>
+                <ol class="tenure-panel__list">
+                  <li class="tenure-panel__item tenure-panel__item--current">
+                    <span class="tenure-panel__name">Prof. Nik</span>
+                    <time class="tenure-panel__range" datetime="2019">2019 – present</time>
+                    <span class="tenure-panel__note">current</span>
+                  </li>
+                </ol>
+              </div>
+              <div id="tenure-president" class="tenure-panel" hidden data-tenure-panel>
+                <p class="tenure-panel__role">President</p>
+                <ol class="tenure-panel__list">
+                  <li class="tenure-panel__item tenure-panel__item--current">
+                    <span class="tenure-panel__name">Gnana Sishir Kumar</span>
+                    <time class="tenure-panel__range" datetime="2026-01">Jan 2026 – present</time>
+                    <span class="tenure-panel__note">current</span>
+                  </li>
+                </ol>
+              </div>
+              <div id="tenure-rnd" class="tenure-panel" hidden data-tenure-panel>
+                <p class="tenure-panel__role">VP Research &amp; Development</p>
+                <ol class="tenure-panel__list">
+                  <li class="tenure-panel__item tenure-panel__item--current">
+                    <span class="tenure-panel__name">Aravind Balaji</span>
+                    <time class="tenure-panel__range" datetime="2026-01">Jan 2026 – present</time>
+                    <span class="tenure-panel__note">current</span>
+                  </li>
+                </ol>
+              </div>
+              <div id="tenure-tech" class="tenure-panel" hidden data-tenure-panel>
+                <p class="tenure-panel__role">VP Technology</p>
+                <ol class="tenure-panel__list">
+                  <li class="tenure-panel__item tenure-panel__item--current">
+                    <span class="tenure-panel__name">Vanshi</span>
+                    <time class="tenure-panel__range" datetime="2026-01">Jan 2026 – present</time>
+                    <span class="tenure-panel__note">current</span>
+                  </li>
+                </ol>
+              </div>
+              <div id="tenure-marketing" class="tenure-panel" hidden data-tenure-panel>
+                <p class="tenure-panel__role">VP Marketing</p>
+                <ol class="tenure-panel__list">
+                  <li class="tenure-panel__item tenure-panel__item--current">
+                    <span class="tenure-panel__name">Ratan</span>
+                    <time class="tenure-panel__range" datetime="2026-01">Jan 2026 – present</time>
+                    <span class="tenure-panel__note">current</span>
+                  </li>
+                </ol>
+              </div>
+              <div id="tenure-research-ops" class="tenure-panel" hidden data-tenure-panel>
+                <p class="tenure-panel__role">VP Research Operations</p>
+                <ol class="tenure-panel__list">
+                  <li class="tenure-panel__item">
+                    <span class="tenure-panel__name">Natnicha</span>
+                    <time class="tenure-panel__range" datetime="2026-01">Jan 2026 – Apr 2026</time>
+                    <span class="tenure-panel__note">formerly VP Operations</span>
+                  </li>
+                  <li class="tenure-panel__item tenure-panel__item--current">
+                    <span class="tenure-panel__name">Je Sai Kailash</span>
+                    <time class="tenure-panel__range" datetime="2026-04">Apr 2026 – Aug 2026</time>
+                    <span class="tenure-panel__note">current</span>
+                  </li>
+                </ol>
+              </div>
+              <div id="tenure-treasurer" class="tenure-panel" hidden data-tenure-panel>
+                <p class="tenure-panel__role">Treasurer</p>
+                <ol class="tenure-panel__list">
+                  <li class="tenure-panel__item tenure-panel__item--current">
+                    <span class="tenure-panel__name">Jaisukh</span>
+                    <time class="tenure-panel__range" datetime="2026-01">Jan 2026 – present</time>
+                    <span class="tenure-panel__note">current</span>
+                  </li>
+                </ol>
+              </div>
             </div>
-          </details>
-
-          <details class="year-block" id="y-2022-24">
-            <summary class="year-block__summary">
-              <span class="year-block__num year-block__num--range">2022–24</span>
-              <span class="year-block__era">Dormant Period</span>
-              <span class="year-block__tally">1 entry</span>
-              <span class="year-block__chevron" aria-hidden="true"></span>
-            </summary>
-            <div class="year-block__panel">
-              <article class="year-entry">
-                <span class="year-entry__tag">LOG</span>
-                <h3 class="year-entry__name">Quiet years.</h3>
-                <p class="year-entry__bio">
-                  The unit went quiet during the pandemic-era cohort gap. No formal operations. Alumni network stayed
-                  loosely connected via LinkedIn. The 2026 revival was led by former members who wanted the operating model
-                  back in service at Northeastern.
-                </p>
-              </article>
-            </div>
-          </details>
-
-          <details class="year-block" id="y-2021">
-            <summary class="year-block__summary">
-              <span class="year-block__num">2021</span>
-              <span class="year-block__era">First Graduation</span>
-              <span class="year-block__tally">3 entries</span>
-              <span class="year-block__chevron" aria-hidden="true"></span>
-            </summary>
-            <div class="year-block__panel">
-              <article class="year-entry">
-                <span class="year-entry__tag">ALUMNI</span>
-                <h3 class="year-entry__name">Ayush Singh</h3>
-                <p class="year-entry__role">MS Computer &amp; Data Science</p>
-                <p class="year-entry__bio">
-                  Mentored by Prof. Nik through multiple projects. Pragmatic teaching style that lets students learn
-                  current industry methods and hit the ground running on every new venture.
-                </p>
-              </article>
-              <article class="year-entry">
-                <span class="year-entry__tag">ALUMNI</span>
-                <h3 class="year-entry__name">Pramod Pai</h3>
-                <p class="year-entry__role">Information Systems · Explainable AI Group</p>
-                <p class="year-entry__bio">
-                  XAI group alum. Work at the unit led directly to a role at Squark.ai on a cutting-edge interpretability
-                  problem. Learning XAI techniques let him peek under the hood of any ML model.
-                </p>
-              </article>
-              <article class="year-entry">
-                <span class="year-entry__tag">MILESTONE</span>
-                <h3 class="year-entry__name">Squark.ai deployment lineage begins</h3>
-                <p class="year-entry__bio">
-                  Explainable AI group's work gets deployed at Squark.ai, establishing the unit's industry-deployment
-                  pipeline for student research.
-                </p>
-              </article>
-            </div>
-          </details>
-
-          <details class="year-block" id="y-2020">
-            <summary class="year-block__summary">
-              <span class="year-block__num">2020</span>
-              <span class="year-block__era">Inaugural Era</span>
-              <span class="year-block__tally">3 entries</span>
-              <span class="year-block__chevron" aria-hidden="true"></span>
-            </summary>
-            <div class="year-block__panel">
-              <article class="year-entry">
-                <span class="year-entry__tag">ALUMNI</span>
-                <h3 class="year-entry__name">Tanvi Modi</h3>
-                <p class="year-entry__role">Information Design &amp; Visualization · Hues &amp; Tones</p>
-                <p class="year-entry__bio">
-                  Worked on Hues &amp; Tones. A project like this made her realize how important it is for a designer to
-                  understand a developer's perspective — and vice versa.
-                </p>
-              </article>
-              <article class="year-entry">
-                <span class="year-entry__tag">ALUMNI</span>
-                <h3 class="year-entry__name">Yuhang Li</h3>
-                <p class="year-entry__role">Engineering Management &amp; Data Mining · Hues &amp; Tones</p>
-                <p class="year-entry__bio">
-                  Developer side of the Hues &amp; Tones bridge. First time working with a designer — gave him a
-                  perspective he didn't know he was missing.
-                </p>
-              </article>
-              <article class="year-entry">
-                <span class="year-entry__tag">ALUMNI</span>
-                <h3 class="year-entry__name">Ziwei Fan</h3>
-                <p class="year-entry__role">now Research Software Engineer · Mass General Hospital</p>
-                <p class="year-entry__bio">
-                  2019 skunk. The interpretability project he worked on at the unit impressed the manager who later hired
-                  him at MGH. Cutting-edge, not a cliché replication.
-                </p>
-              </article>
-            </div>
-          </details>
-
-          <details class="year-block" id="y-2019">
-            <summary class="year-block__summary">
-              <span class="year-block__num">2019</span>
-              <span class="year-block__era">Unit Established</span>
-              <span class="year-block__tally">4 entries</span>
-              <span class="year-block__chevron" aria-hidden="true"></span>
-            </summary>
-            <div class="year-block__panel">
-              <article class="year-entry">
-                <span class="year-entry__tag">MILESTONE</span>
-                <h3 class="year-entry__name">Unit founded.</h3>
-                <p class="year-entry__bio">
-                  AI Skunkworks established at Northeastern University by Prof. Nik Bear Brown as a student-led research
-                  initiative. Mission: radical innovation through small teams, short loops, and real stakes — borrowing
-                  the operating model from Lockheed's Skunk Works.
-                </p>
-              </article>
-              <article class="year-entry">
-                <span class="year-entry__tag">FOUNDER</span>
-                <h3 class="year-entry__name">Prof. Nik Bear Brown</h3>
-                <p class="year-entry__role">Faculty Founder · College of Engineering</p>
-                <p class="year-entry__bio">
-                  Founded the unit. Advised the first cohort. Set the operating culture that still runs today. Active
-                  mentor for current divisions.
-                </p>
-              </article>
-              <article class="year-entry">
-                <span class="year-entry__tag">COHORT</span>
-                <h3 class="year-entry__name">The 2019 skunks</h3>
-                <p class="year-entry__role">Inaugural Members</p>
-                <p class="year-entry__bio">
-                  First cohort spanning Information Design, Engineering Management, Data Mining, and Information
-                  Systems. Shipped the original Hues &amp; Tones project to RISE finalist standing. Several alumni from
-                  this cohort now mentor active members.
-                </p>
-              </article>
-              <article class="year-entry">
-                <span class="year-entry__tag">PROJECT</span>
-                <h3 class="year-entry__name">Hues &amp; Tones — RISE 2019 finalist</h3>
-                <p class="year-entry__role">Flagship project</p>
-                <p class="year-entry__bio">
-                  Designer-developer bridge project. Built by an interdisciplinary team that proved the unit's thesis:
-                  small teams across disciplines beat homogeneous departments on novel problems.
-                </p>
-              </article>
-            </div>
-          </details>
-        </div>
-
-        <section class="crew-closing" aria-labelledby="crew-closing-title">
-          <h2 class="crew-closing__title" id="crew-closing-title">Want your name in the next year?</h2>
-          <p class="crew-closing__sub">Discord first. Division meeting second. Everything else follows.</p>
-          <div class="crew-closing__actions">
-            <a class="btn btn--primary" href="#discord-invite" data-discord-invite>Open Discord ↗</a>
-            <a class="btn" href="events.html">See Events</a>
           </div>
         </section>
 
-      </main>
+        <section id="partners" class="page-section" aria-labelledby="partners-title">
+          <p class="page-section__label">§ 03.E — Institutional partners</p>
+          <h2 id="partners-title">Allied units</h2>
+          <!-- TODO: confirm official partnership language with Khoury / CCI before publishing -->
+          <ul class="crew-partners__list">
+            <li class="crew-partners__item">Khoury College of Computer Sciences</li>
+            <li class="crew-partners__sep" aria-hidden="true">·</li>
+            <li class="crew-partners__item">Northeastern AI Initiative</li>
+            <li class="crew-partners__sep" aria-hidden="true">·</li>
+            <li class="crew-partners__item">Student clubs &amp; project teams</li>
+            <li class="crew-partners__sep" aria-hidden="true">·</li>
+            <li class="crew-partners__item">Humanitarians AI</li>
+            <li class="crew-partners__sep" aria-hidden="true">·</li>
+            <li class="crew-partners__item">Harvard / Boston Children's Hospital</li>
+            <li class="crew-partners__sep" aria-hidden="true">·</li>
+            <li class="crew-partners__item">MA AI Hub</li>
+            <li class="crew-partners__sep" aria-hidden="true">·</li>
+            <li class="crew-partners__item">The Open Accelerator</li>
+          </ul>
+          <div class="partner-list">
+            <article class="partner-card">
+              <h3 class="partner-card__name">Khoury College of Computer Sciences</h3>
+              <p>Faculty sponsorship and lab space through Prof. Nik's research group.</p>
+            </article>
+            <article class="partner-card">
+              <h3 class="partner-card__name">Northeastern AI Initiative</h3>
+              <p>Cross-college alignment on student AI research and demo days.</p>
+            </article>
+            <article class="partner-card">
+              <h3 class="partner-card__name">Student clubs &amp; project teams</h3>
+              <p>Ad-hoc collaborations with robotics, software, and entrepreneurship groups on campus.</p>
+            </article>
+            <article class="partner-card">
+              <h3 class="partner-card__name">Humanitarians AI</h3>
+              <p>501(c)(3) institutional and fiscal partner for the revived unit.</p>
+            </article>
+            <article class="partner-card">
+              <h3 class="partner-card__name">Harvard / Boston Children's Hospital</h3>
+              <p>Clinical and research collaborations spanning interpretability and decision support.</p>
+            </article>
+            <article class="partner-card">
+              <h3 class="partner-card__name">MA AI Hub</h3>
+              <p>Regional ecosystem partner — joint public events including Boston Tech Week.</p>
+            </article>
+            <article class="partner-card">
+              <h3 class="partner-card__name">The Open Accelerator</h3>
+              <p>Cross-org hack-jam collaborator (Red Hat × IBM × MA AI Hub) for Seaport builds.</p>
+            </article>
+          </div>
+        </section>
 
+        <section id="testimonials" class="page-section" aria-labelledby="testimonials-title">
+          <p class="page-section__label">§ 03.E.1 — Field reports</p>
+          <h2 id="testimonials-title">What skunks say.</h2>
+          <div class="testimonial-grid">
+            <article class="testimonial-card">
+              <div class="testimonial-card__avatar" aria-hidden="true">T</div>
+              <p class="testimonial-card__role">
+                Tanvi Modi · MS Information Design &amp; Visualization
+              </p>
+              <blockquote class="testimonial-card__quote">
+                Hues &amp; Tones taught me how to translate design concepts for a developer audience
+                — the bridge between Figma and the model output.
+              </blockquote>
+            </article>
+            <article class="testimonial-card">
+              <div class="testimonial-card__avatar" aria-hidden="true">Y</div>
+              <p class="testimonial-card__role">
+                Yuhang Li · MS Engineering Management &amp; Data Mining
+              </p>
+              <blockquote class="testimonial-card__quote">
+                Through Hues &amp; Tones I learned to weigh visual impact alongside model
+                interpretability — taste and metrics in the same loop.
+              </blockquote>
+            </article>
+            <article class="testimonial-card">
+              <div class="testimonial-card__avatar" aria-hidden="true">Z</div>
+              <p class="testimonial-card__role">
+                Ziwei Fan · Research Software Engineer, Mass General Hospital · 2019 skunk
+              </p>
+              <blockquote class="testimonial-card__quote">
+                An ML interpretability project with Prof. Nik became the story that impressed a
+                future manager in interviews — the work traveled.
+              </blockquote>
+            </article>
+            <article class="testimonial-card">
+              <div class="testimonial-card__avatar" aria-hidden="true">A</div>
+              <p class="testimonial-card__role">Ayush Singh · MS Computer &amp; Data Science</p>
+              <blockquote class="testimonial-card__quote">
+                Prof. Nik Bear has been a mentor across multiple projects — the kind of advising
+                that compounds over a degree, not a semester.
+              </blockquote>
+            </article>
+            <article class="testimonial-card">
+              <div class="testimonial-card__avatar" aria-hidden="true">P</div>
+              <p class="testimonial-card__role">Pramod Pai · MS Information Systems</p>
+              <blockquote class="testimonial-card__quote">
+                The Explainable AI group led directly to work with Squark.ai — student research that
+                survived contact with production.
+              </blockquote>
+            </article>
+          </div>
+        </section>
+
+        <section id="support" class="page-section" aria-labelledby="support-title">
+          <p class="page-section__label">§ 03.F — Support the unit</p>
+          <h2 id="support-title">Back the work</h2>
+          <div class="support-prompt">
+            <p>
+              Skunkworks runs on GPU credits, spare parts, pizza, and alumni who remember what
+              it was like to build without a budget line. Help us stand up dedicated compute.
+            </p>
+            <a
+              class="btn btn--primary"
+              href="https://huskystarter.northeastern.edu/campaigns/ai-skunkworks-dedicated-compute-node#/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Support on HuskyStarter →
+            </a>
+          </div>
+        </section>
+
+        <section id="contact" class="page-section contact-block" aria-labelledby="contact-title">
+          <p class="page-section__label">§ 03.G — Contact</p>
+          <h2 id="contact-title">Reach the unit</h2>
+          <p>
+            Primary contact is email, with Discord and Substack for announcements. Pick the channel
+            that matches what you need.
+          </p>
+          <div class="contact-grid">
+            <article class="contact-card">
+              <p class="contact-card__label">General inquiries</p>
+              <a class="contact-card__link" href="mailto:aiskunkworks@northeastern.edu"
+                >aiskunkworks@northeastern.edu</a
+              >
+            </article>
+            <article class="contact-card">
+              <p class="contact-card__label">Intake</p>
+              <a class="contact-card__link" href="events.html#intake-terminal"
+                >Open intake terminal →</a
+              >
+            </article>
+            <article class="contact-card">
+              <p class="contact-card__label">Partnerships</p>
+              <a class="contact-card__link" href="mailto:aiskunkworks@northeastern.edu"
+                >aiskunkworks@northeastern.edu</a
+              >
+            </article>
+          </div>
+        </section>
+
+        <section class="page-cta" aria-labelledby="crew-cta">
+          <h2 id="crew-cta">Join the roster</h2>
+          <p>Want your name in the next archive entry?</p>
+          <a class="btn btn--primary" href="events.html#intake-terminal">
+            Want your name in the next entry?
+          </a>
+        </section>
+      </main>
       <footer class="site-footer">
         <div class="site-footer__inner">
           <div class="site-footer__grid">
             <div class="site-footer__col site-footer__col--brand">
               <div class="site-footer__brand">
-                <a class="site-brand" href="index.html" aria-label="AI Skunkworks — home">
-                  <img
-                    class="site-brand__logo"
-                    src="assets/skunkworks-logo.jpg"
-                    alt=""
-                    width="44"
-                    height="44"
-                  />
-                  <span class="site-brand__wordmark">
-                    <strong>AI Skunkworks</strong>
-                    <small>Northeastern · est. 2019</small>
-                  </span>
-                </a>
+                <span class="brand-mark" aria-hidden="true"></span>
+                <div class="site-footer__brand-copy">
+                  <span class="site-footer__brand-name">AI Skunkworks</span>
+                  <p class="site-footer__tagline">Northeastern · est. 2019</p>
+                </div>
               </div>
             </div>
             <div class="site-footer__col">
@@ -393,50 +555,38 @@
                 <li><a href="index.html">Index</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="manifesto.html">Manifesto</a></li>
-                <li><a href="people.html">Crew</a></li>
+                <li>
+                  <a href="people.html">Crew</a>
+                  <ul class="site-footer__sublist">
+                    <li><a href="people.html#year-archives">Year archives</a></li>
+                    <li><a href="people.html#command">Command</a></li>
+                    <li><a href="people.html#partners">Partners</a></li>
+                    <li><a href="people.html#contact">Contact</a></li>
+                  </ul>
+                </li>
                 <li><a href="events.html">Events</a></li>
               </ul>
             </div>
             <div class="site-footer__col">
               <h2 class="site-footer__col-title">Channels</h2>
               <ul class="site-footer__list">
-                <li>
-                  <a href="#discord-invite" target="_blank" rel="noopener noreferrer">Discord</a
-                  ><!-- TODO: paste Discord invite URL -->
-                </li>
-                <li>
-                  <a href="#substack" target="_blank" rel="noopener noreferrer">Substack</a
-                  ><!-- TODO: paste Substack URL (likely aiskunkworks.substack.com) -->
-                </li>
-                <li>
-                  <a
-                    href="https://www.linkedin.com/company/aiskunkworks/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >LinkedIn</a
-                  >
-                </li>
-                <li>
-                  <a href="https://instagram.com/aiskunkworks" target="_blank" rel="noopener noreferrer"
-                    >Instagram</a
-                  >
-                </li>
-                <li>
-                  <a href="https://github.com/skunkworksneu" target="_blank" rel="noopener noreferrer">GitHub</a>
-                </li>
-                <li><a href="mailto:aiskunkworks@northeastern.edu">Email</a></li>
+                <li><a href="https://discord.gg/PGebZX3xU" target="_blank" rel="noopener noreferrer">Discord</a></li>
+                <li><a href="https://aiskunkworks.substack.com" target="_blank" rel="noopener noreferrer">Substack</a></li>
+                <li><a href="https://www.linkedin.com/company/aiskunkworks/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="https://instagram.com/aiskunkworks" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                <li><a href="https://github.com/skunkworksneu" target="_blank" rel="noopener noreferrer">GitHub</a></li>
               </ul>
             </div>
             <div class="site-footer__col">
               <h2 class="site-footer__col-title">Contact</h2>
               <ul class="site-footer__list">
                 <li><a href="mailto:aiskunkworks@northeastern.edu">aiskunkworks@northeastern.edu</a></li>
-                <li><a href="#comms">Comms request</a></li>
+                <li><a href="events.html#intake-terminal">Intake terminal ↗</a></li>
               </ul>
             </div>
           </div>
           <div class="site-footer__strip">
-            <span>© 2026 AI Skunkworks — Northeastern</span>
+            <span>© 2026 AI Skunkworks · Northeastern</span>
             <span>NO RIGHTS RESERVED · TRY TO COPY US</span>
           </div>
         </div>

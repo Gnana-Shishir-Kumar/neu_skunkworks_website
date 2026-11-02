@@ -4,9 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Charter — AI Skunkworks</title>
-    <link rel="icon" type="image/jpeg" href="assets/skunkworks-logo.jpg" />
-    <meta property="og:image" content="https://skunk.ai/assets/skunkworks-logo.jpg" />
-    <meta property="og:url" content="https://skunk.ai/manifesto.html" />
+    <meta
+      name="description"
+      content="The AI Skunkworks charter — eight operating tenets and six irreducibly human capacities. What the unit believes, and why."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,25 +18,17 @@
     <link rel="stylesheet" href="styles/base.css" />
     <link rel="stylesheet" href="styles/components.css" />
     <link rel="stylesheet" href="styles/layout.css" />
+    <link rel="stylesheet" href="styles/pages-manifesto.css" />
   </head>
   <body>
     <div class="site-shell">
-      <div class="classification-banner" role="note" aria-label="Classification marking">
-        <p class="classification-banner__text">◆ TS//SCI&nbsp;&nbsp;&nbsp;&nbsp;NOFORN&nbsp;&nbsp;&nbsp;&nbsp;HANDLE VIA SPECIAL ACCESS CHANNELS&nbsp;&nbsp;&nbsp;&nbsp;EYES ONLY&nbsp;&nbsp;&nbsp;&nbsp;◆</p>
-      </div>
       <header class="site-sticky-nav">
         <div class="site-sticky-nav__inner">
-          <a class="site-brand" href="index.html" aria-label="AI Skunkworks — home">
-            <img
-              class="site-brand__logo"
-              src="assets/skunkworks-logo.jpg"
-              alt="AI Skunkworks logo — Northeastern University, Boston"
-              width="44"
-              height="44"
-            />
-            <span class="site-brand__wordmark">
-              <strong>AI Skunkworks</strong>
-              <small>Northeastern · est. 2019</small>
+          <a class="site-sticky-nav__brand" href="index.html">
+            <img class="brand-logo" src="assets/skunkworksneu_logo.jpg" alt="" width="36" height="36" />
+            <span class="site-sticky-nav__brand-text">
+              <span class="site-sticky-nav__brand-title">AI Skunkworks</span>
+              <span class="site-sticky-nav__brand-sub">Northeastern · est. 2019</span>
             </span>
           </a>
           <nav class="site-sticky-nav__links" aria-label="Primary">
@@ -48,28 +41,199 @@
           <div class="site-sticky-nav__meta">
             <span class="site-sticky-nav__pulse" aria-hidden="true"></span>
             <span id="clock" class="site-sticky-nav__clock">00:00:00 Z</span>
+            <button
+              type="button"
+              class="site-sticky-nav__toggle"
+              aria-expanded="false"
+              aria-controls="site-mobile-menu"
+              aria-label="Open menu"
+            >
+              <span class="site-sticky-nav__toggle-bar" aria-hidden="true"></span>
+              <span class="site-sticky-nav__toggle-bar" aria-hidden="true"></span>
+              <span class="site-sticky-nav__toggle-bar" aria-hidden="true"></span>
+            </button>
           </div>
         </div>
       </header>
-      <main class="site-main" id="main"></main>
+      <div id="site-mobile-menu" class="site-mobile-menu" hidden>
+        <button type="button" class="site-mobile-menu__close" aria-label="Close menu">×</button>
+        <nav class="site-mobile-menu__links" aria-label="Mobile primary">
+          <a href="index.html">00 — Index</a>
+          <a href="projects.html">01 — Projects</a>
+          <a href="manifesto.html" aria-current="page">02 — Manifesto</a>
+          <a href="people.html">03 — Crew</a>
+          <a href="events.html">04 — Events</a>
+        </nav>
+      </div>
+      <main class="site-main" id="main">
+        <section class="page-hero manifesto-hero">
+          <p class="page-hero__label">§ 02 — Charter Document</p>
+          <h1><em>why we</em> <span>exist</span></h1>
+        </section>
+
+        <section class="page-section origin">
+          <div class="origin__pullquote">
+            The original Skunk Works built the SR-71 in <em>20 months</em> with a team of
+            <em>126 people</em> in a tent next to a wind tunnel. We are not building reconnaissance
+            aircraft. But we are stealing the operating model.
+          </div>
+          <p class="origin__body">
+            AI research, in its current institutional form, is optimized for the wrong things.
+            Publications over reproducibility. Demos over deployment. Funding rounds over working
+            code. The interesting problems sit in the gap between what big labs will commit to and
+            what universities are equipped to do.
+          </p>
+          <p class="origin__body">
+            Northeastern's AI Skunkworks occupies that gap. Founded in 2019. Small enough to move
+            fast. Serious enough to ship. Selective enough that being wrong is informative.
+            Affiliated with Humanitarians AI, the 501(c)(3) that handles the institutional and fiscal
+            infrastructure.
+          </p>
+        </section>
+
+        <section class="page-section" id="tenets">
+          <div class="page-section__head">
+            <p class="page-section__label">§ 02.A — Operating Tenets</p>
+            <h2>Eight rules we keep breaking productively.</h2>
+          </div>
+          <ol class="tenets tenets--full">
+            <li>
+              <strong>Ship the experiment, not the product.</strong>
+              <span
+                >A working prototype beats a perfect deck every time. The deck is for people who
+                couldn't tell the difference.</span
+              >
+            </li>
+            <li>
+              <strong>Compute is cheap. Conviction is rare.</strong>
+              <span
+                >Spend the former lavishly to test the latter. The most expensive thing is hesitation
+                on a good hunch.</span
+              >
+            </li>
+            <li>
+              <strong>Read the paper, then ignore it.</strong>
+              <span
+                >Reproduce from first principles, not from citations. Half of what's published is
+                wrong; the other half is right for the wrong reasons.</span
+              >
+            </li>
+            <li>
+              <strong>Small teams, short loops.</strong>
+              <span
+                >Two researchers and an engineer can outpace a department. Three engineers and a
+                researcher can outpace a directorate.</span
+              >
+            </li>
+            <li>
+              <strong>Disagree in private. Commit in public.</strong>
+              <span
+                >Then revise both, ruthlessly, on Friday. Consensus is a lagging indicator, not a
+                goal.</span
+              >
+            </li>
+            <li>
+              <strong>The bug is the discovery.</strong>
+              <span
+                >Anomalies are the only honest data your model will ever give you. Hunt them.</span
+              >
+            </li>
+            <li>
+              <strong>Taste is the moat.</strong>
+              <span
+                >Models commoditize. Benchmarks saturate. Compute equalizes. What scales is judgment
+                about what to build.</span
+              >
+            </li>
+            <li>
+              <strong>Publish the failure.</strong>
+              <span>Especially the expensive ones. The field is poorer for everyone's silence.</span>
+            </li>
+          </ol>
+        </section>
+
+        <section class="page-section irreducibles" id="irreducibles">
+          <div class="page-section__head">
+            <p class="page-section__label">§ 02.B — Irreducible Capacities</p>
+            <h2>What machines can't supply.</h2>
+            <p class="page-section__sub">
+              Every AI deployment failure is a judgment-layer failure. The algorithm was running; no
+              one was conducting it. These are the capacities we develop in skunks that no model
+              currently possesses.
+            </p>
+          </div>
+          <div class="irreducibles__grid">
+            <article class="irr-card">
+              <p class="irr-card__label">01 — BOTSPEAK / TOOL FLUENCY</p>
+              <h3>Operating the machines</h3>
+              <p>
+                Prompt engineering, output evaluation, knowing when to trust a result and when not
+                to. The operating layer. Necessary, not sufficient.
+              </p>
+            </article>
+            <article class="irr-card">
+              <p class="irr-card__label">02 — CAUSAL REASONING</p>
+              <h3>Why, not just what</h3>
+              <p>
+                AI finds correlations. Humans build causal models. Counterfactual thinking,
+                interventionist reasoning, and the 'why' questions statistical models cannot answer.
+              </p>
+            </article>
+            <article class="irr-card">
+              <p class="irr-card__label">03 — ETHICAL JUDGMENT</p>
+              <h3>Moral reasoning under uncertainty</h3>
+              <p>
+                Value pluralism, and the limits of rule-based ethics. Cannot be reduced to
+                optimization or alignment.
+              </p>
+            </article>
+            <article class="irr-card">
+              <p class="irr-card__label">04 — AIMAGINEERING</p>
+              <h3>Meaning, not just output</h3>
+              <p>
+                Generative AI produces outputs. Humans produce meaning. Creative process, aesthetic
+                judgment, conceptual blending, and the difference between novelty and originality.
+              </p>
+            </article>
+            <article class="irr-card">
+              <p class="irr-card__label">05 — EMBODIED MENTORSHIP</p>
+              <h3>Presence, improvisation, attunement</h3>
+              <p>
+                The embodied skills that make mentorship effective — none of which transfer to a
+                language model.
+              </p>
+            </article>
+            <article class="irr-card">
+              <p class="irr-card__label">06 — CONDUCTING</p>
+              <h3>Orchestrating, not playing</h3>
+              <p>
+                Plausibility auditing, problem formulation, tool orchestration, interpretive
+                judgment, executive integration. Conduct the orchestra; don't play every instrument.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="page-section manifesto-close">
+          <h2 class="manifesto-close__title">
+            Read this once. Argue with it. Then come build.
+          </h2>
+          <div class="manifesto-close__actions">
+            <a href="events.html#intake-terminal" class="btn btn--primary">Open Intake →</a>
+            <a href="projects.html" class="btn">View Operations</a>
+          </div>
+        </section>
+      </main>
       <footer class="site-footer">
         <div class="site-footer__inner">
           <div class="site-footer__grid">
             <div class="site-footer__col site-footer__col--brand">
               <div class="site-footer__brand">
-                <a class="site-brand" href="index.html" aria-label="AI Skunkworks — home">
-                  <img
-                    class="site-brand__logo"
-                    src="assets/skunkworks-logo.jpg"
-                    alt=""
-                    width="44"
-                    height="44"
-                  />
-                  <span class="site-brand__wordmark">
-                    <strong>AI Skunkworks</strong>
-                    <small>Northeastern · est. 2019</small>
-                  </span>
-                </a>
+                <span class="brand-mark" aria-hidden="true"></span>
+                <div class="site-footer__brand-copy">
+                  <span class="site-footer__brand-name">AI Skunkworks</span>
+                  <p class="site-footer__tagline">Northeastern · est. 2019</p>
+                </div>
               </div>
             </div>
             <div class="site-footer__col">
@@ -78,50 +242,38 @@
                 <li><a href="index.html">Index</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="manifesto.html">Manifesto</a></li>
-                <li><a href="people.html">Crew</a></li>
+                <li>
+                  <a href="people.html">Crew</a>
+                  <ul class="site-footer__sublist">
+                    <li><a href="people.html#year-archives">Year archives</a></li>
+                    <li><a href="people.html#command">Command</a></li>
+                    <li><a href="people.html#partners">Partners</a></li>
+                    <li><a href="people.html#contact">Contact</a></li>
+                  </ul>
+                </li>
                 <li><a href="events.html">Events</a></li>
               </ul>
             </div>
             <div class="site-footer__col">
               <h2 class="site-footer__col-title">Channels</h2>
               <ul class="site-footer__list">
-                <li>
-                  <a href="#discord-invite" target="_blank" rel="noopener noreferrer">Discord</a
-                  ><!-- TODO: paste Discord invite URL -->
-                </li>
-                <li>
-                  <a href="#substack" target="_blank" rel="noopener noreferrer">Substack</a
-                  ><!-- TODO: paste Substack URL (likely aiskunkworks.substack.com) -->
-                </li>
-                <li>
-                  <a
-                    href="https://www.linkedin.com/company/aiskunkworks/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >LinkedIn</a
-                  >
-                </li>
-                <li>
-                  <a href="https://instagram.com/aiskunkworks" target="_blank" rel="noopener noreferrer"
-                    >Instagram</a
-                  >
-                </li>
-                <li>
-                  <a href="https://github.com/skunkworksneu" target="_blank" rel="noopener noreferrer">GitHub</a>
-                </li>
-                <li><a href="mailto:aiskunkworks@northeastern.edu">Email</a></li>
+                <li><a href="https://discord.gg/PGebZX3xU" target="_blank" rel="noopener noreferrer">Discord</a></li>
+                <li><a href="https://aiskunkworks.substack.com" target="_blank" rel="noopener noreferrer">Substack</a></li>
+                <li><a href="https://www.linkedin.com/company/aiskunkworks/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="https://instagram.com/aiskunkworks" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                <li><a href="https://github.com/skunkworksneu" target="_blank" rel="noopener noreferrer">GitHub</a></li>
               </ul>
             </div>
             <div class="site-footer__col">
               <h2 class="site-footer__col-title">Contact</h2>
               <ul class="site-footer__list">
                 <li><a href="mailto:aiskunkworks@northeastern.edu">aiskunkworks@northeastern.edu</a></li>
-                <li><a href="#comms">Comms request</a></li>
+                <li><a href="events.html#intake-terminal">Intake terminal ↗</a></li>
               </ul>
             </div>
           </div>
           <div class="site-footer__strip">
-            <span>© 2026 AI Skunkworks — Northeastern</span>
+            <span>© 2026 AI Skunkworks · Northeastern</span>
             <span>NO RIGHTS RESERVED · TRY TO COPY US</span>
           </div>
         </div>

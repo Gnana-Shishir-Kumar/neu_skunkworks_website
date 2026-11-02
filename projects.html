@@ -4,9 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Operations — AI Skunkworks</title>
-    <link rel="icon" type="image/jpeg" href="assets/skunkworks-logo.jpg" />
-    <meta property="og:image" content="https://skunk.ai/assets/skunkworks-logo.jpg" />
-    <meta property="og:url" content="https://skunk.ai/projects.html" />
+    <meta
+      name="description"
+      content="Six standing research divisions and active project files at AI Skunkworks Northeastern. Causal inference, explainable AI, visual analytics, ML observability, Kaggle, and Gauguin."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,22 +22,13 @@
   </head>
   <body>
     <div class="site-shell">
-      <div class="classification-banner" role="note" aria-label="Classification marking">
-        <p class="classification-banner__text">◆ TS//SCI&nbsp;&nbsp;&nbsp;&nbsp;NOFORN&nbsp;&nbsp;&nbsp;&nbsp;HANDLE VIA SPECIAL ACCESS CHANNELS&nbsp;&nbsp;&nbsp;&nbsp;EYES ONLY&nbsp;&nbsp;&nbsp;&nbsp;◆</p>
-      </div>
       <header class="site-sticky-nav">
         <div class="site-sticky-nav__inner">
-          <a class="site-brand" href="index.html" aria-label="AI Skunkworks — home">
-            <img
-              class="site-brand__logo"
-              src="assets/skunkworks-logo.jpg"
-              alt="AI Skunkworks logo — Northeastern University, Boston"
-              width="44"
-              height="44"
-            />
-            <span class="site-brand__wordmark">
-              <strong>AI Skunkworks</strong>
-              <small>Northeastern · est. 2019</small>
+          <a class="site-sticky-nav__brand" href="index.html">
+            <img class="brand-logo" src="assets/skunkworksneu_logo.jpg" alt="" width="36" height="36" />
+            <span class="site-sticky-nav__brand-text">
+              <span class="site-sticky-nav__brand-title">AI Skunkworks</span>
+              <span class="site-sticky-nav__brand-sub">Northeastern · est. 2019</span>
             </span>
           </a>
           <nav class="site-sticky-nav__links" aria-label="Primary">
@@ -49,134 +41,313 @@
           <div class="site-sticky-nav__meta">
             <span class="site-sticky-nav__pulse" aria-hidden="true"></span>
             <span id="clock" class="site-sticky-nav__clock">00:00:00 Z</span>
+            <button
+              type="button"
+              class="site-sticky-nav__toggle"
+              aria-expanded="false"
+              aria-controls="site-mobile-menu"
+              aria-label="Open menu"
+            >
+              <span class="site-sticky-nav__toggle-bar" aria-hidden="true"></span>
+              <span class="site-sticky-nav__toggle-bar" aria-hidden="true"></span>
+              <span class="site-sticky-nav__toggle-bar" aria-hidden="true"></span>
+            </button>
           </div>
         </div>
       </header>
+      <div id="site-mobile-menu" class="site-mobile-menu" hidden>
+        <button type="button" class="site-mobile-menu__close" aria-label="Close menu">×</button>
+        <nav class="site-mobile-menu__links" aria-label="Mobile primary">
+          <a href="index.html">00 — Index</a>
+          <a href="projects.html" aria-current="page">01 — Projects</a>
+          <a href="manifesto.html">02 — Manifesto</a>
+          <a href="people.html">03 — Crew</a>
+          <a href="events.html">04 — Events</a>
+        </nav>
+      </div>
       <main class="site-main" id="main">
-        <section class="intake" id="intake" aria-labelledby="intake-heading">
-          <header class="section-head">
-            <span class="section-num">§ 01.D</span>
-            <p class="section-head__eyebrow">INTAKE</p>
-            <h2 id="intake-heading">Submit a research proposal.</h2>
-          </header>
-          <form
-            class="proposal-form"
-            id="form-a1"
-            action="mailto:aiskunkworks@northeastern.edu"
-            method="post"
-            enctype="text/plain"
-          >
-            <p class="proposal-form__id">FORM.A1 — PROPOSAL INTAKE</p>
-            <p class="proposal-form__routing">UNCLASSIFIED · ROUTED TO DIVISION LEADS · MONTHLY REVIEW</p>
-            <p class="proposal-form__intro">
-              Use this form to propose a new research lane, spin up a sub-group, or request resources for an experiment
-              that does not fit an existing division. Proposals are reviewed on a rolling basis; expect a response within
-              two weeks during the academic term.
-            </p>
-            <fieldset class="proposal-form__fieldset">
-              <legend class="proposal-form__legend">Operator</legend>
-              <div class="proposal-form__grid">
-                <div class="form-field">
-                  <label for="operator-name">Full name</label>
-                  <input id="operator-name" name="operator_name" type="text" autocomplete="name" required />
-                </div>
-                <div class="form-field">
-                  <label for="operator-email">Northeastern email</label>
-                  <input
-                    id="operator-email"
-                    name="operator_email"
-                    type="email"
-                    autocomplete="email"
-                    placeholder="name@northeastern.edu"
-                    required
-                  />
-                </div>
-                <div class="form-field">
-                  <label for="operator-affiliation">Affiliation</label>
-                  <select id="operator-affiliation" name="affiliation" required>
-                    <option value="">Select…</option>
-                    <option value="undergraduate">Undergraduate</option>
-                    <option value="graduate">Graduate</option>
-                    <option value="doctoral">Doctoral</option>
-                    <option value="faculty">Faculty / staff</option>
-                    <option value="alumni">Alumni</option>
-                    <option value="external">External collaborator</option>
-                  </select>
-                </div>
-                <div class="form-field">
-                  <label for="target-division">Target division</label>
-                  <select id="target-division" name="target_division" required>
-                    <option value="">Select…</option>
-                    <option value="causal">Causal Inference</option>
-                    <option value="xai">Explainable AI</option>
-                    <option value="observability">ML Observability</option>
-                    <option value="visual">Visual Analytics</option>
-                    <option value="generative">Generative Art (Gauguin)</option>
-                    <option value="competition">Competition ML / Kaggle</option>
-                    <option value="new">New division (justify below)</option>
-                  </select>
-                </div>
+        <section class="page-hero projects-hero">
+          <p class="page-hero__label">§ 01 — Operations Dossier</p>
+          <h1><em>field</em> <span>reports</span></h1>
+          <p class="projects-hero__lead">
+            Six standing research divisions. Active project files. Some public, some not. Inclusion
+            does not imply completion, sanity, or institutional support.
+          </p>
+        </section>
+
+        <section class="page-section" id="divisions">
+          <div class="page-section__head">
+            <p class="page-section__label">§ 01.A — Research Divisions</p>
+            <h2>Six groups. One culture.</h2>
+          </div>
+          <div class="divisions-timeline">
+            <article class="division" id="causal">
+              <div class="division__meta">
+                <span class="division__id">DIV.001</span>
+                <span class="division__status">Faculty TBA · Lead</span>
+                <span class="division__members">Members: 8</span>
+                <span class="division__meets">Meets: Tuesdays 6pm</span>
               </div>
-            </fieldset>
-            <fieldset class="proposal-form__fieldset">
-              <legend class="proposal-form__legend">Proposal</legend>
-              <div class="form-field">
-                <label for="working-title">Working title</label>
-                <input id="working-title" name="working_title" type="text" required />
+              <div class="division__body">
+                <h3 class="division__title">Causal Inference</h3>
+                <p class="division__desc">
+                  What actually caused what? Statistical models find correlation; causal inference
+                  asks the harder question. The group works through Pearl's hierarchy, runs
+                  do-calculus exercises, and applies counterfactual methods to real datasets —
+                  currently a clinical decision-making collaboration with Mass General.
+                </p>
+                <ul class="division__chips">
+                  <li>DO-CALCULUS</li>
+                  <li>COUNTERFACTUALS</li>
+                  <li>PROPENSITY</li>
+                  <li>DAGs</li>
+                  <li>INSTRUMENTAL VARS</li>
+                </ul>
               </div>
-              <div class="form-field">
-                <label for="thesis-line">Thesis (one sentence)</label>
-                <input id="thesis-line" name="thesis" type="text" maxlength="160" required />
+            </article>
+
+            <article class="division" id="xai">
+              <div class="division__meta">
+                <span class="division__id">DIV.002</span>
+                <span class="division__status">Lead: TBA</span>
+                <span class="division__members">Members: 12</span>
+                <span class="division__meets">Meets: Thursdays 5pm</span>
               </div>
-              <div class="form-field">
-                <label for="problem">Problem statement</label>
-                <textarea id="problem" name="problem" rows="6" required></textarea>
+              <div class="division__body">
+                <h3 class="division__title">Explainable AI</h3>
+                <p class="division__desc">
+                  Model interpretability is no longer optional. The group surveys and implements XAI
+                  methods — SHAP, LIME, integrated gradients, attention rollouts — and audits real
+                  models. A 2019 project from this group was deployed at Squark.ai. Multiple papers
+                  in preparation.
+                </p>
+                <ul class="division__chips">
+                  <li>SHAP</li>
+                  <li>LIME</li>
+                  <li>ATTENTION</li>
+                  <li>MODEL CARDS</li>
+                  <li>AUDIT</li>
+                </ul>
               </div>
-              <div class="form-field">
-                <label for="approach">Proposed approach</label>
-                <textarea id="approach" name="approach" rows="6" required></textarea>
+            </article>
+
+            <article class="division" id="viz">
+              <div class="division__meta">
+                <span class="division__id">DIV.003</span>
+                <span class="division__status">Lead: TBA</span>
+                <span class="division__members">Members: 6</span>
+                <span class="division__meets">Meets: Fridays 4pm</span>
               </div>
-              <div class="form-field">
-                <label for="prior-art">What already exists</label>
-                <textarea
-                  id="prior-art"
-                  name="prior_art"
-                  rows="4"
-                  placeholder="Papers, repos, baselines, or internal work you are building on."
-                ></textarea>
+              <div class="division__body">
+                <h3 class="division__title">Visual Analytics</h3>
+                <p class="division__desc">
+                  Where information design meets machine learning. Builds interactive visualization
+                  tools that surface what models are doing — and lets domain experts disagree with
+                  them in a structured way. Cross-listed with the Information Design and
+                  Visualization program.
+                </p>
+                <ul class="division__chips">
+                  <li>D3</li>
+                  <li>OBSERVABLE</li>
+                  <li>INTERACTION DESIGN</li>
+                  <li>USER STUDIES</li>
+                </ul>
               </div>
-              <div class="form-field">
-                <label for="milestone">90-day deliverable</label>
-                <textarea id="milestone" name="milestone_90d" rows="4" required></textarea>
+            </article>
+
+            <article class="division" id="obs">
+              <div class="division__meta">
+                <span class="division__id">DIV.004</span>
+                <span class="division__status">Lead: TBA</span>
+                <span class="division__members">Members: 5</span>
+                <span class="division__meets">Meets: Wednesdays 7pm</span>
               </div>
-              <div class="form-field">
-                <label for="failure-mode">Accepted failure mode</label>
-                <textarea
-                  id="failure-mode"
-                  name="failure_mode"
-                  rows="3"
-                  placeholder="What are you willing to be wrong about?"
-                  required
-                ></textarea>
+              <div class="division__body">
+                <h3 class="division__title">ML Observability</h3>
+                <p class="division__desc">
+                  Production models drift, fail silently, and lie about their confidence. The group
+                  builds instrumentation: drift detectors, calibration audits, fairness monitors. The
+                  unsexy work that decides whether a model survives contact with reality.
+                </p>
+                <ul class="division__chips">
+                  <li>DRIFT</li>
+                  <li>CALIBRATION</li>
+                  <li>MONITORING</li>
+                  <li>MLOPS</li>
+                </ul>
               </div>
-              <div class="form-field">
-                <label for="resources">Compute / data / mentor needs</label>
-                <textarea id="resources" name="resources" rows="3"></textarea>
+            </article>
+
+            <article class="division" id="kaggle">
+              <div class="division__meta">
+                <span class="division__id">DIV.005</span>
+                <span class="division__status">Lead: TBA</span>
+                <span class="division__members">Members: 9</span>
+                <span class="division__meets">Meets: Mondays 6pm — open to all levels</span>
               </div>
-            </fieldset>
-            <label class="proposal-form__ack">
-              <input type="checkbox" name="acknowledgment" required />
-              I understand this is a research proposal routed to division leads — not a feature request or coursework
-              extension.
-            </label>
-            <div class="proposal-form__actions">
-              <button class="btn btn--primary" type="submit">Transmit proposal →</button>
-            </div>
-            <p class="proposal-form__fine">
-              Submissions open your mail client with a pre-filled message. If that fails, email
-              aiskunkworks@northeastern.edu with subject line “FORM.A1 — [working title]”.
-            </p>
-          </form>
+              <div class="division__body">
+                <h3 class="division__title">Kaggle Group</h3>
+                <p class="division__desc">
+                  Competition-driven learning. Pick a Kaggle competition each semester, work it as a
+                  team across feature engineering, modeling, and ensembling. Currently working the
+                  RSNA Pulmonary Embolism Detection challenge.
+                </p>
+                <ul class="division__chips">
+                  <li>PYTORCH</li>
+                  <li>XGBOOST</li>
+                  <li>FEATURE ENG</li>
+                  <li>CV</li>
+                  <li>ENSEMBLING</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="division" id="gauguin">
+              <div class="division__meta">
+                <span class="division__id">DIV.006</span>
+                <span class="division__status">Lead: TBA</span>
+                <span class="division__members">Members: 7</span>
+                <span class="division__meets">Meets: Tuesdays 8pm</span>
+              </div>
+              <div class="division__body">
+                <h3 class="division__title">Gauguin</h3>
+                <p class="division__desc">
+                  Generative art research. Named for the painter who left the Paris market to make
+                  work the market wasn't asking for. Studies aesthetic judgment as a research problem
+                  — what makes generative output good rather than merely novel. Outputs: exhibitions,
+                  papers, the occasional album.
+                </p>
+                <ul class="division__chips">
+                  <li>DIFFUSION</li>
+                  <li>GAN</li>
+                  <li>AESTHETIC EVAL</li>
+                  <li>CREATIVE CODING</li>
+                  <li>TYPOGRAPHY</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="page-section" id="active-projects">
+          <div class="page-section__head">
+            <p class="page-section__label">§ 01.B — Active Project Files</p>
+            <h2>What's on the bench.</h2>
+          </div>
+          <div class="ops-grid">
+            <article id="hues-tones" class="ops-grid__item ops-grid__item--featured ops-grid__item--span-7">
+              <div class="ops-grid__head">
+                <span class="ops-grid__id">PRJ.HT-001</span>
+                <span class="ops-grid__tag">● FLAGSHIP</span>
+              </div>
+              <h3 class="ops-grid__title">Hues &amp; Tones</h3>
+              <p class="ops-grid__body">
+                A collaboration between designers and developers — bridging the gap between
+                organically-generated design concepts and what models can actually produce. Built by
+                a team that took RISE finalist standing in 2019. Still iterating. Contributors: Tanvi
+                Modi, Yuhang Li, others.
+              </p>
+              <div class="ops-grid__foot">
+                <span>ACTIVE · ITERATION 04</span>
+                <a href="#hues-tones" class="ops-grid__link">OPEN FILE →</a>
+              </div>
+            </article>
+
+            <article id="pe-detection" class="ops-grid__item ops-grid__item--span-5">
+              <div class="ops-grid__head">
+                <span class="ops-grid__id">PRJ.PE-002</span>
+                <span class="ops-grid__tag">● KAGGLE · MEDICAL IMAGING</span>
+              </div>
+              <h3 class="ops-grid__title">Pulmonary Embolism Detection</h3>
+              <p class="ops-grid__body">
+                RSNA Kaggle challenge work. 3D CT volumes, class imbalance, competition-grade
+                ensembling. Cross-pollination with the Causal Inference group's clinical work at Mass
+                General.
+              </p>
+              <div class="ops-grid__foot">
+                <span>COMPETITION ACTIVE</span>
+                <a href="#pe-detection" class="ops-grid__link">OPEN FILE →</a>
+              </div>
+            </article>
+
+            <article id="interpretability-toolkit" class="ops-grid__item ops-grid__item--span-5">
+              <div class="ops-grid__head">
+                <span class="ops-grid__id">PRJ.IT-003</span>
+                <span class="ops-grid__tag">● OPEN SOURCE · XAI</span>
+              </div>
+              <h3 class="ops-grid__title">Interpretability Toolkit</h3>
+              <p class="ops-grid__body">
+                Open-source XAI methods bundle maintained by the Explainable AI group. SHAP, LIME,
+                integrated gradients, attention rollouts, and audit tooling — all in one place.
+              </p>
+              <div class="ops-grid__foot">
+                <span>v0.3 PUBLIC</span>
+                <a href="#interpretability-toolkit" class="ops-grid__link">OPEN FILE →</a>
+              </div>
+            </article>
+
+            <article id="drift-sentinel" class="ops-grid__item ops-grid__item--span-7">
+              <div class="ops-grid__head">
+                <span class="ops-grid__id">PRJ.DS-004</span>
+                <span class="ops-grid__tag">● ML OBSERVABILITY</span>
+              </div>
+              <h3 class="ops-grid__title">Drift Sentinel</h3>
+              <p class="ops-grid__body">
+                Real-time drift detection prototype from the ML Observability group. Planned for
+                open-sourcing once it stops embarrassing the team. Currently deployed against three
+                internal partner datasets for validation.
+              </p>
+              <div class="ops-grid__foot">
+                <span>BETA · INTERNAL</span>
+                <a href="#drift-sentinel" class="ops-grid__link">OPEN FILE →</a>
+              </div>
+            </article>
+
+            <article id="gauguin-studio" class="ops-grid__item ops-grid__item--span-6">
+              <div class="ops-grid__head">
+                <span class="ops-grid__id">PRJ.GS-005</span>
+                <span class="ops-grid__tag">● GENERATIVE · ART</span>
+              </div>
+              <h3 class="ops-grid__title">Gauguin Studio</h3>
+              <p class="ops-grid__body">
+                Creative-coding tool built by the Gauguin group. Used internally for exhibitions and
+                the occasional album cover. Diffusion + aesthetic evaluation loops.
+              </p>
+              <div class="ops-grid__foot">
+                <span>INTERNAL TOOLING</span>
+                <a href="#gauguin-studio" class="ops-grid__link">OPEN FILE →</a>
+              </div>
+            </article>
+
+            <article id="restricted" class="ops-grid__item ops-grid__item--span-6">
+              <div class="ops-grid__head">
+                <span class="ops-grid__id">PRJ.X-███</span>
+                <span class="ops-grid__tag">● CLEARANCE PENDING</span>
+              </div>
+              <h3 class="ops-grid__title">[REDACTED]</h3>
+              <p class="ops-grid__body">
+                <span class="redacted">██████████████████████</span> in
+                <span class="redacted">█████████</span> settings. Details withheld pending review.
+              </p>
+              <div class="ops-grid__foot">
+                <span>CLEARANCE PENDING</span>
+                <a href="#restricted" class="ops-grid__link">OPEN FILE →</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="page-section proposal-cta">
+          <p class="page-section__label">§ 01.C — Intake</p>
+          <h2>Don't see the work you came to do?</h2>
+          <p class="proposal-cta__sub">
+            Skunkworks has always grown by people showing up with something specific to investigate.
+            Submit a two-page proposal year-round. We respond within fourteen days.
+          </p>
+          <div class="proposal-cta__actions">
+            <a href="events.html#intake-terminal" class="btn btn--primary">Submit a Proposal →</a>
+            <a href="mailto:aiskunkworks@northeastern.edu" class="btn">Email the leads</a>
+          </div>
         </section>
       </main>
       <footer class="site-footer">
@@ -184,19 +355,11 @@
           <div class="site-footer__grid">
             <div class="site-footer__col site-footer__col--brand">
               <div class="site-footer__brand">
-                <a class="site-brand" href="index.html" aria-label="AI Skunkworks — home">
-                  <img
-                    class="site-brand__logo"
-                    src="assets/skunkworks-logo.jpg"
-                    alt=""
-                    width="44"
-                    height="44"
-                  />
-                  <span class="site-brand__wordmark">
-                    <strong>AI Skunkworks</strong>
-                    <small>Northeastern · est. 2019</small>
-                  </span>
-                </a>
+                <span class="brand-mark" aria-hidden="true"></span>
+                <div class="site-footer__brand-copy">
+                  <span class="site-footer__brand-name">AI Skunkworks</span>
+                  <p class="site-footer__tagline">Northeastern · est. 2019</p>
+                </div>
               </div>
             </div>
             <div class="site-footer__col">
@@ -205,50 +368,38 @@
                 <li><a href="index.html">Index</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="manifesto.html">Manifesto</a></li>
-                <li><a href="people.html">Crew</a></li>
+                <li>
+                  <a href="people.html">Crew</a>
+                  <ul class="site-footer__sublist">
+                    <li><a href="people.html#year-archives">Year archives</a></li>
+                    <li><a href="people.html#command">Command</a></li>
+                    <li><a href="people.html#partners">Partners</a></li>
+                    <li><a href="people.html#contact">Contact</a></li>
+                  </ul>
+                </li>
                 <li><a href="events.html">Events</a></li>
               </ul>
             </div>
             <div class="site-footer__col">
               <h2 class="site-footer__col-title">Channels</h2>
               <ul class="site-footer__list">
-                <li>
-                  <a href="#discord-invite" target="_blank" rel="noopener noreferrer">Discord</a
-                  ><!-- TODO: paste Discord invite URL -->
-                </li>
-                <li>
-                  <a href="#substack" target="_blank" rel="noopener noreferrer">Substack</a
-                  ><!-- TODO: paste Substack URL (likely aiskunkworks.substack.com) -->
-                </li>
-                <li>
-                  <a
-                    href="https://www.linkedin.com/company/aiskunkworks/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >LinkedIn</a
-                  >
-                </li>
-                <li>
-                  <a href="https://instagram.com/aiskunkworks" target="_blank" rel="noopener noreferrer"
-                    >Instagram</a
-                  >
-                </li>
-                <li>
-                  <a href="https://github.com/skunkworksneu" target="_blank" rel="noopener noreferrer">GitHub</a>
-                </li>
-                <li><a href="mailto:aiskunkworks@northeastern.edu">Email</a></li>
+                <li><a href="https://discord.gg/PGebZX3xU" target="_blank" rel="noopener noreferrer">Discord</a></li>
+                <li><a href="https://aiskunkworks.substack.com" target="_blank" rel="noopener noreferrer">Substack</a></li>
+                <li><a href="https://www.linkedin.com/company/aiskunkworks/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="https://instagram.com/aiskunkworks" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                <li><a href="https://github.com/skunkworksneu" target="_blank" rel="noopener noreferrer">GitHub</a></li>
               </ul>
             </div>
             <div class="site-footer__col">
               <h2 class="site-footer__col-title">Contact</h2>
               <ul class="site-footer__list">
                 <li><a href="mailto:aiskunkworks@northeastern.edu">aiskunkworks@northeastern.edu</a></li>
-                <li><a href="#comms">Comms request</a></li>
+                <li><a href="events.html#intake-terminal">Intake terminal ↗</a></li>
               </ul>
             </div>
           </div>
           <div class="site-footer__strip">
-            <span>© 2026 AI Skunkworks — Northeastern</span>
+            <span>© 2026 AI Skunkworks · Northeastern</span>
             <span>NO RIGHTS RESERVED · TRY TO COPY US</span>
           </div>
         </div>
