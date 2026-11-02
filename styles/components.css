@@ -8,7 +8,7 @@
   top: 0;
   z-index: var(--z-sticky-nav);
   width: 100%;
-  background: rgba(10, 10, 10, 0.85);
+  background: rgba(var(--paper-rgb), 0.85);
   backdrop-filter: blur(12px) saturate(1.2);
   -webkit-backdrop-filter: blur(12px) saturate(1.2);
   border-bottom: 1px solid var(--line);
@@ -574,4 +574,14 @@
   background: color-mix(in srgb, var(--warn) 10%, var(--paper));
   color: var(--ink);
   font-size: var(--text-sm);
+}
+
+/* Official logo in the nav brand (replaces the CSS crosshair mark) */
+.brand-logo {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px var(--line);
 }
