@@ -26,9 +26,10 @@ body {
   font-weight: 400;
   line-height: 1.55;
   letter-spacing: 0.01em;
+  transition: background-color 0.6s var(--ease-out), color 0.6s var(--ease-out);
 }
 
-/* Fixed blueprint grid (60×60, lime @ 4%) + radial mask */
+/* Fixed blueprint grid (60×60, accent @ var(--grid-alpha)) + green glow in dark theme */
 body::before {
   content: "";
   position: fixed;
@@ -37,10 +38,11 @@ body::before {
   z-index: var(--z-grid);
   background-color: var(--paper);
   background-image:
-    linear-gradient(rgba(184, 255, 58, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(184, 255, 58, 0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
-  background-position: 0 0, 0 0;
+    radial-gradient(ellipse 60% 50% at 70% 40%, var(--glow), transparent 70%),
+    linear-gradient(rgba(var(--accent-rgb), var(--grid-alpha)) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--accent-rgb), var(--grid-alpha)) 1px, transparent 1px);
+  background-size: auto, 60px 60px, 60px 60px;
+  background-position: 0 0, 0 0, 0 0;
   mask-image: radial-gradient(ellipse 85% 70% at 50% 45%, black 0%, transparent 72%);
   -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 45%, black 0%, transparent 72%);
 }
@@ -65,6 +67,8 @@ html::after {
   inset: 0;
   z-index: var(--z-scan);
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s var(--ease-out);
   background-image: repeating-linear-gradient(
     to bottom,
     transparent 0,
@@ -72,6 +76,10 @@ html::after {
     rgba(0, 0, 0, 0.04) 3px,
     rgba(0, 0, 0, 0.04) 4px
   );
+}
+
+:root[data-theme="dark"]::after {
+  opacity: 1;
 }
 
 img,

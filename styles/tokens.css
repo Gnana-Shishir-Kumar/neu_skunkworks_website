@@ -3,26 +3,35 @@
  */
 
 :root {
+  /* Default theme: light (white paper, deep green accent) */
+  color-scheme: light;
+
   /* Paper (surfaces) */
-  --paper: #0a0a0a;
-  --paper-2: #131312;
-  --paper-3: #1a1a18;
+  --paper: #ffffff;
+  --paper-2: #f5f7f4;
+  --paper-3: #eceee9;
+  --paper-rgb: 255, 255, 255;
 
   /* Ink (text) */
-  --ink: #d6d4cc;
-  --ink-dim: #8a8a82;
-  --ink-faint: #4a4a45;
+  --ink: #111412;
+  --ink-dim: #5b625d;
+  --ink-faint: #a4aaa5;
 
   /* Accent */
-  --accent: #b8ff3a;
-  --accent-dim: #6a8f1f;
+  --accent: #0b8a5c;
+  --accent-dim: #8cc9ae;
+  --accent-rgb: 11, 138, 92;
 
   /* Semantic */
-  --warn: #ff7a3a;
+  --warn: #c2501a;
   --classified: #ff3a3a;
 
   /* Lines */
-  --line: rgba(214, 212, 204, 0.12);
+  --line: rgba(17, 20, 18, 0.12);
+
+  /* Atmosphere (grid + glow) */
+  --grid-alpha: 0.05;
+  --glow: transparent;
 
   /* Typography (Google Fonts loaded in HTML) */
   --mono: "JetBrains Mono", ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
@@ -83,4 +92,28 @@
   --year-jump-height: 2.75rem;
   --accent-glow: color-mix(in srgb, var(--accent) 45%, transparent);
   --z-year-jump: 90;
+}
+
+/* Dark theme: black + green. Applied on <html> while a [data-theme-zone="dark"] section is in view. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --paper: #050806;
+  --paper-2: #0a110d;
+  --paper-3: #101a14;
+  --paper-rgb: 5, 8, 6;
+
+  --ink: #dfe8e2;
+  --ink-dim: #8aa194;
+  --ink-faint: #3f5247;
+
+  --accent: #19e6a0;
+  --accent-dim: #14805c;
+  --accent-rgb: 25, 230, 160;
+
+  --warn: #ff7a3a;
+  --line: rgba(223, 232, 226, 0.12);
+
+  --grid-alpha: 0.05;
+  --glow: rgba(25, 230, 160, 0.16);
 }

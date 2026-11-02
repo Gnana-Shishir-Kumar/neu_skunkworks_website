@@ -39,7 +39,7 @@
   top: var(--classification-banner-h);
   z-index: var(--z-sticky-nav);
   width: 100%;
-  background: rgba(10, 10, 10, 0.85);
+  background: rgba(var(--paper-rgb), 0.85);
   backdrop-filter: blur(12px) saturate(1.2);
   -webkit-backdrop-filter: blur(12px) saturate(1.2);
   border-bottom: 1px solid var(--line);
@@ -79,7 +79,7 @@
   display: block;
   flex-shrink: 0;
   background: var(--paper);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 0 1px var(--line);
   transition:
     box-shadow 0.2s ease,
     transform 0.2s ease;
@@ -88,7 +88,7 @@
 .site-brand:hover .site-brand__logo {
   box-shadow:
     0 0 0 1px var(--accent),
-    0 0 12px rgba(184, 255, 58, 0.25);
+    0 0 12px rgba(var(--accent-rgb), 0.25);
 }
 
 .site-brand__wordmark {

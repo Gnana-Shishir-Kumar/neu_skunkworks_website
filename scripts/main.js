@@ -101,3 +101,32 @@
     });
   });
 })();
+
+(() => {
+  const zones = document.querySelectorAll("[data-theme-zone]");
+  if (!zones.length) return;
+
+  const root = document.documentElement;
+  let ticking = false;
+
+  function applyZone() {
+    ticking = false;
+    const mid = window.innerHeight * 0.5;
+    let theme = "light";
+    zones.forEach((zone) => {
+      const rect = zone.getBoundingClientRect();
+      if (rect.top <= mid && rect.bottom > mid) theme = zone.dataset.themeZone;
+    });
+    if (root.dataset.theme !== theme) root.dataset.theme = theme;
+  }
+
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(applyZone);
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  applyZone();
+})();
